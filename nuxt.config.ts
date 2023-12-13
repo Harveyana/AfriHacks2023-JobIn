@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     cssLayerOrder: 'tailwind-base, primevue, tailwind-utilities',
     components: {
       // include: '*',
-      include: ['InputText', 'Button', 'Dialog','Toast','ProgressSpinner','Ripple'],
+      include: ['InputText', 'Button', 'Dialog','Toast','ProgressSpinner','Ripple','Sidebar','Menu','SelectButton','InputNumber','TabView','TabPanel','DataTable','Column','ColumnGroup','Row'],
     },
     directives: {
       include: '*'
