@@ -30,7 +30,10 @@
   </template>
 
   <script setup lang="ts">
+  import { getAuth, signOut } from "firebase/auth";
+
   const menu = ref();
+  const router = useRouter()
   const route = useRoute()
   const props = defineProps<{
     new: boolean
@@ -58,7 +61,12 @@
                     label: 'Logout',
                     icon: 'pi pi-upload',
                     command: () => {
-                      console.log('heelo')
+                      const auth = getAuth();
+                      signOut(auth).then(() => {
+                        router.push('/auth')
+                      }).catch((error) => {
+                        console.log(error)
+                      });
                     }
                 }
             ]

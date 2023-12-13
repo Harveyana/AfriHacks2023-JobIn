@@ -8,13 +8,13 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      title: "Vyre Africa",
+      title: "JobIn",
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'True seamless finance across borders', name: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses', content: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses' }
+        // { hid: 'True seamless finance across borders', name: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses', content: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses' }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/vyreLogo.png' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/jobInLogo.svg' }],
     },
   },
   primevue: {

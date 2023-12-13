@@ -88,6 +88,12 @@
   </div>
 </template>
 <script setup lang="ts">
+ definePageMeta({
+  middleware: [
+    'auth',
+    // Add in more middleware here
+  ]
+ });
 import {ref} from 'vue'
 
 const visible = ref(false)

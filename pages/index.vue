@@ -42,6 +42,12 @@
 
 </template>
 <script setup lang="ts">
+  definePageMeta({
+    middleware: [
+      'auth',
+      // Add in more middleware here
+    ]
+  });
 const visible = ref(false)
 const data = ref('Job Title: Product Designer')
 
