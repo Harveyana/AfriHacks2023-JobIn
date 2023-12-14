@@ -16,7 +16,7 @@
               <img src="~/assets/img/Ai-Avatar.svg" class=" hidden sm:block w-8 cursor-pointer p-1 rounded-[50px] mx-2 md:my-1 md:w-8" />
               <div class="w-full sm:w-[90%] border-gray-400 border bg-white dark:bg-[#0b1015] rounded-2xl h-full flex flex-col ">
                 <textarea
-                  v-model="data"
+                  v-model="props.data"
                   class="w-full dark:text-white text-sm h-full p-3 bg-white dark:bg-[#0b1015] resize-none rounded-2xl">
                 </textarea>
                 <div class="my-2 mx-2 flex flex-row items-center justify-between">
@@ -53,7 +53,10 @@
   </template>
   <script setup lang="ts">
 
-  const data = ref('Job Title: Product Designer')
+  // const data = ref('Job Title: Product Designer')
+  const props = defineProps<{
+    data: string
+  }>()
 
   const expanded = ref(8)
   

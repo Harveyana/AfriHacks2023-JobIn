@@ -17,9 +17,9 @@
  
            <div class="w-full overflow-x-hidden flex flex-col space-y-4 h-[85%] bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3 overflow-scroll">
  
-           <ChatRequest />
+           <ChatRequest :data="chatRequest"/>
  
-             <ChatResponse/>
+             <ChatResponse :data="chatResponse"/>
            
            </div>
  
@@ -45,6 +45,9 @@
  const route = useRoute()
  
  const visible = ref(false)
+
+ const chatRequest = ref('')
+ const chatResponse = ref('')
  
  const openDialog = ()=>{
    visible.value = true

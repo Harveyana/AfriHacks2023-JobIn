@@ -1,169 +1,42 @@
 <template>
-  <div class="w-full overflow-hidden">
-    <Navbar color="#DAA520" @openForm="openDialog()"/>
-    <!-- Hero section -->
-    <section id="hero" class="w-full">
-      <baseSection>
-        <div class="sm:hidden col-span-12 lg:col-span-6">
-          <div class="w-full">
-            <img
-              data-aos="fade-up"
-              data-aos-delay="500"
-              data-aos-once="true"
-              src='~/assets/img/globe-Payment.png'
-              class=""
-              alt=""
-            />
+  <div class="w-full h-full sm:h-[90%] overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
+
+    <!-- Container -->
+    <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
+
+        <div class="h-[92%] col-span-12 lg:col-span-7">
+          <div class="w-full bg-white border-white border dark:bg-[#12171d] rounded-2xl space-y-4 px-5 py-4">
+            <span class="text-sm w-full text-[#555a5c] flex flex-row items-start justify-start">
+             Available Balance
+            </span>
+
+            <div class="flex flex-row items-center justify-between">
+              <h1 class="text-4xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
+                $140,000
+              </h1>
+
+              <svg class='cursor-pointer w-6 sm:w-3 md:w-10 stroke-black dark:stroke-gray-300' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54zM12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.79 11.79 0 0 1-4 5.19l-1.42-1.43A9.862 9.862 0 0 0 20.82 12A9.821 9.821 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.821 9.821 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13"/></svg>
+            </div>
+
+            <span class="text-sm w-full text-[#555a5c] flex flex-row items-start justify-start">
+             Payout Balance: <span class="text-white mx-2">$139,000.99</span>
+            </span>
+
           </div>
         </div>
 
-        <div class="col-span-12 lg:col-span-6 mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
-          <span data-aos="fade-right" data-aos-once="true" class="text-base text-gradient font-semibold uppercase"
-            >Sign Up Today</span
-          >
-          <h1
-            data-aos="fade-right"
-            data-aos-once="true"
-            class="text-[2.5rem] sm:text-5xl xl:text-6xl font-bold leading-tight capitalize sm:pr-8 xl:pr-10"
-          >
-            Global <span class="text-header-gradient">banking</span> made easy
-          </h1>
-          <p data-aos="fade-down" data-aos-once="true" data-aos-delay="300" class="paragraph hidden sm:block">
-            Smart and secured mediums to effortlessly send and receive money for individuals and businesses.
-          </p>
-          <div
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-delay="700"
-            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-2"
-          >
-            <baseButton
-            @click="visible = true"
-              class="max-w-full px-8 py-4 bg-gradient-to-r from-[#0cd3ff] to-[#DAA520] border border-[#0cd3ff] text-black"
-            >
-              Get Started
-            </baseButton>
-            <baseButton
-            @click="visible = true"
-              class="max-w-full px-6 py-4 bg-inherit text-gradient border border-[#1D3160] flex items-center justify-center"
-            >
-              <span>Join Waitlist</span>
-              <ChevronDownIcon :size="20" class="mt-1 text-[#1D3160]" />
-            </baseButton>
-          </div>
-        </div>
-        <div class="hidden sm:block col-span-12 lg:col-span-6">
-          <div class="w-full">
-            <img
-              data-aos="fade-up"
-              data-aos-once="true"
-              data-aos-delay="500"
-              src='~/assets/img/globe-Payment.png'
-              class=""
-              alt=""
-            />
-          </div>
-        </div>
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          src='~/assets/img/pattern/ellipse-1.png'
-          class="hidden sm:block absolute bottom-12 xl:bottom-16 left-4 xl:left-0 w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          src='~/assets/img/pattern/ellipse-2.png'
-          class="hidden sm:block absolute top-4 sm:top-10 right-64 sm:right-96 xl:right-[32rem] w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          src='~/assets/img/pattern/ellipse-3.png'
-          class="hidden sm:block absolute bottom-56 right-24 w-6"
-        />
-        <img
-          data-aos="fade-up"
-          data-aos-delay="300"
-          src='~/assets/img/pattern/star.png'
-          class="hidden sm:block absolute top-20 sm:top-28 right-16 lg:right-0 lg:left-[30rem] w-8"
-        />
-      </baseSection>
-    </section>
+        <div class="h-full overflow-x-hidden overflow-y-scroll space-y-2 col-span-12 lg:col-span-5">
 
-    
-    <!--Flexible payments with virtual and physical cards -->
-    <section class="w-full my-12">
-      <baseSection>
-        <cards-Image data-aos="fade-right" class="mb-8" />
-        <div data-aos="fade-left" class="col-span-12 lg:col-span-6 mt-4 xl:mt-20 space-y-6 px-4">
-          <h2 class="text-3xl sm:text-5xl font-semibold sm:pr-8 xl:pr-12">
-            Flexible Payments with  <br class="hidden sm:block" />
-             Virtual and Physical Cards.
-          </h2>
-          <p class="paragraph">
-            Instant prepaid cards and debit cards for global payments.
-          </p>
+
+
           
         </div>
-      </baseSection>
+
+        
     </section>
 
+</div>
 
-    <!-- Send and Recieve section -->
-    <section class="w-full my-12">
-      <baseSection>
-        <sendRecieve-Image class="sm:hidden mb-8" />
-        <div data-aos="fade-right" class="col-span-12 lg:col-span-6 mt-4 xl:mt-20 space-y-6 px-4">
-          <h2 class="text-3xl sm:text-5xl font-semibold sm:pr-8 xl:pr-12">
-            Send and Receive <br class="hidden sm:block" />
-             funds faster.
-          </h2>
-          <p class="paragraph">
-            Bank faster on safe and secured mediums.
-          </p>
-          
-        </div>
-        <sendRecieve-Image data-aos="fade-left" class="hidden sm:block" />
-      </baseSection>
-    </section>
-
-    <!-- Multi-currency  support section-->
-    <section class="w-full my-12">
-      <baseSection>
-        <buyTradeImage data-aos="fade-right" class="mb-8" />
-        <div data-aos="fade-left" class="col-span-12 lg:col-span-6 mt-4 xl:mt-20 space-y-6 px-4">
-          <h2 class="text-3xl sm:text-5xl font-semibold sm:pr-8 xl:pr-12">
-            Multi-currency Support  <br class="hidden sm:block" />
-             With IBANs.
-          </h2>
-          <p class="paragraph">
-             Bank with multiple currencies globally
-          </p>
-          
-        </div>
-      </baseSection>
-    </section>
-
-
-
-    <div class="w-full my-10 flex justify-center">
-      <a
-        v-smooth-scroll
-        data-aos="flip-down"
-        data-aos-delay="150"
-        href="#navbar"
-        class="px-6 py-3 flex items-center space-x-2 bg-[#FAFAFA] hover:bg-gray-100 hover:shadow-md border border-[#DDDDDD] rounded-md text-gray-700"
-      >
-        <span>Back to top</span>
-        <ArrowUpIcon :size="20" />
-      </a>
-    </div>
-    <WaitlistForm :visible="visible" @cancel="visible = false" />
-
-    <Footer />
-
-  </div>
 </template>
 <script setup lang="ts">
 
@@ -176,23 +49,5 @@ const openDialog = ()=>{
 </script>
 
 <style scoped>
-.text-header-gradient {
-  background: rgb(57, 132, 244);
-  background: linear-gradient(169.4deg, #0cd3ff -6.01%, #DAA520 36.87%, #DAA520 78.04%, #0cd3ff 103.77%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.bg-partner {
-  background: url('../assets/img/partner/background.png');
-  background-size: cover;
-  background-position: center;
-}
-.bg-trading-tools {
-  background: url('../assets/img/bg-trading-tools.webp');
-  background-size: cover;
-  background-position: center;
-}
-.max-h-0 {
-  max-height: 0;
-}
+
 </style>
