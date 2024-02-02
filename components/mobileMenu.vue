@@ -5,8 +5,8 @@
             
             <div data-aos="fade-up" data-aos-once="true" class=" w-full flex flex-row items-center justify-between rounded-2xl py-2 px-1">
                 
-                <img src="~/assets/img/logo/jobInLogo.svg" class="mb-4 lg:mb-0 sm:w-10 dark:hidden"/>
-                <img src="~/assets/img/logo/logodark.svg" class="mb-4 lg:mb-0 sm:w-10 hidden dark:flex"/>
+                <img src="~/assets/img/logo/JobRoutes.svg" class="mb-4 lg:mb-0 sm:w-10 dark:hidden"/>
+                <img src="~/assets/img/logo/JobRoutesDark.svg" class="mb-4 lg:mb-0 sm:w-10 hidden dark:flex"/>
 
                 <!-- close icon -->
                 <svg @click="$emit('closeMenu')" class='ml-auto mb-4 cursor-pointer w-6 md:w-7 dark:fill-white dark:stroke-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z"/></svg>

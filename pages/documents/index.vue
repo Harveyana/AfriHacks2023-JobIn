@@ -1,41 +1,66 @@
 <template>
-    <div class="w-full h-full sm:h-[90%] overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
+    <div class="w-full h-full sm:h-[90%] overflow-hidden mb-2">
  
      <!-- Container -->
-        <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
- 
-            <div class="h-full p-4 rounded-2xl dark:bg-[#12171d] overflow-y-scroll col-span-12">
+        <section class="overflow-hidden bg-transparent w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
 
-                <DataTable
-                :pt="{
-                    table: { class:'bg-gray-200 dark:bg-[#0b1015] dark:text-white text-sm text-black w-full' },
-                    root: { class:'bg-white dark:bg-[#12171d]'},
-                    paginator: {
-                        root:{class:'dark:bg-[#12171d] text-white w-30 px-2 mx-2'}
-                    }
-                }"
-                 @rowSelect="$router.push(`/documents/${selectedDialogue.role}`)" paginator :rows="5" :rowsPerPageOptions="[5, 10]" v-model:selection="selectedDialogue" selectionMode="single" dataKey="role" :value="dialogues">
-                    <Column 
-                    :pt="{
-                        bodyCell: { class: 'bg-white dark:bg-[#12171d] hover:bg-gray-300 dark:hover:bg-black' }
-                    }"
-                     field="role" header="Role"></Column>
+            <!-- Table Container -->
+            <div  class="h-full p-4 rounded-2xl bg-white dark:bg-[#12171d] overflow-y-scroll col-span-12">
+        
+                <!-- Heading Row -->
+                <div class="hidden bg-gray-200 dark:bg-[#0b1015] w-full sm:p-4 border-b border-gray-100 dark:border-[#23282d] sm:grid grid-cols-12 gap-2 sm:gap-x-4  dark:text-white text-black">
+                    <span class="py-1 sm:py-0 col-span-9 sm:col-span-4 text-xs sm:text-sm  extraboldCabinet">
+                        Role
+                    </span>
 
-                    <Column
-                    :pt="{
-                        bodyCell: { class: 'bg-white dark:bg-[#12171d] hover:bg-gray-300 dark:hover:bg-black' }
-                    }"
-                     field="lastEdited" header="Last Edited"></Column>
+                    <span class="py-1 sm:py-0 col-span-3 sm:col-span-4 text-xs sm:text-sm cabinet sm:extraboldCabinet">
+                        Last Edited
+                    </span>
 
-                    <Column 
-                    :pt="{
-                        bodyCell: { class: 'bg-white dark:bg-[#12171d] hover:bg-gray-300 dark:hover:bg-black' }
-                    }"
-                    field="dateCreated" header="Date Created"></Column>
+                    <span class="py-1 sm:py-0 col-span-4 sm:col-span-4 text-xs sm:text-sm cabinet sm:extraboldCabinet">
+                        Date Created
+                    </span>
 
-                </DataTable>
+                </div>
+
+                <!-- Data Row -->
+                <div class="row bg-white hover:bg-gray-200 cursor-pointer dark:hover:bg-[#0b1015] dark:bg-[#12171d] border-b border-gray-100 dark:border-[#23282d] w-full py-1 sm:p-4 grid grid-cols-12 gap-2 sm:gap-x-4">
+                    <span class=" truncate col-span-8 sm:col-span-4 text-sm sm:text-sm  extraboldCabinet text-[#2E2E2E] dark:text-white">
+                        Senior Product Designer at JobIn
+                    </span>
+
+                    <span class=" text-center sm:text-left truncate pt-[2px] sm:py-0 col-span-3 sm:col-span-4 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white">
+                        Today
+                    </span>
+
+                    <span class="sm:py-0 col-span-9 sm:col-span-4 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white">
+                        2023-11-15 13:30
+                    </span>
+
+                </div>
 
 
+            </div>
+
+            <div v-if="false" class="col-span-12 bg-white dark:bg-[#12171d] rounded-3xl flex flex-col items-center justify-center space-y-4 lg:space-y-8 py-20 mb-2 lg:mb-0">
+                <div class='w-[10%]'>
+                    <img
+                    src='~/assets/img/docEmpty.svg'
+                    class="w-full"
+                    alt=""
+                    />
+                </div>
+
+                <h1
+                    class="text-lg text-black dark:text-white cabinet flex flex-col items-center justify-center"
+                    >
+                    No available history
+                    <p  class="w-1/2 text-xs sm:text-sm text-center text-gray-500 cabinet paragraph mx-14 mt-4">
+                    Your document will be visible after you generate your first resume and cover letter
+                    </p>
+                </h1>
+
+            
             </div>
         
      
@@ -99,5 +124,15 @@
  </script>
  
  <style scoped>
- 
+  .cabinet {
+   font-family: 'cabinetGrotesk', sans-serif;
+  }
+
+ .extraboldCabinet{
+  font-family: 'cabinetGroteskBold', sans-serif;
+ }
+
+ .blackCabinet{
+  font-family: 'cabinetGroteskBlack', sans-serif;
+ }
  </style>

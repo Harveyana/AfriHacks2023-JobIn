@@ -5,7 +5,7 @@
     <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
 
         <div class="h-[92%] col-span-12 lg:col-span-7">
-          <div class="w-full bg-white border-white border dark:bg-[#12171d] rounded-2xl space-y-4 px-5 py-4">
+          <div class="w-full bg-white border border-gray-100 dark:border-[#23282d] dark:bg-[#12171d] rounded-2xl space-y-4 px-5 py-4">
             <span class="text-sm w-full text-[#555a5c] flex flex-row items-start justify-start">
              Available Balance
             </span>

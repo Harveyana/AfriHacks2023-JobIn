@@ -1,17 +1,17 @@
 <template>
-      <div class="w-full sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-12">
+      <div class="w-full sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-4">
 
         <div class="w-full flex flex-col items-center justify-center space-y-5">
-          <h1 v-if="showLoader == false" class="text-5xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
+          <h1 v-if="showLoader == false" class="blackCabinet text-5xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
             Login
           </h1>
-          <ProgressSpinner v-if="showLoader" class="-mt-8" style="width: 100px; height: 100px" strokeWidth="8" fill="#ffff"
+          <ProgressSpinner v-if="showLoader" class="" style="width: 80px; height: 80px" strokeWidth="8" fill="#ffff"
             animationDuration=".5s" aria-label="Custom ProgressSpinner" 
           />
         </div>
 
         <div class="w-full flex flex-col items-center justify-center space-y-8 px-12">
-          <button class="w-full flex flex-row hover:bg-gray-600 items-center justify-center border-2  border-white rounded-3xl p-1.5">
+          <button @click="googleSignIn()" class="w-full flex flex-row hover:bg-gray-600 items-center justify-center border-2  border-white rounded-3xl p-1.5">
             <img src="~/assets/img/googleLogo.svg" class="w-5 cursor-pointer mx-2" />
             <span class="text-[16px] text-white text-center">Continue with Google</span>
           </button>
@@ -39,9 +39,9 @@
               <span class="text-sm text-[#555a5c] text-left ">Password</span>
               <input
                 :="password"
-                type="text"
+                type="password"
                 class="w-full border-[#555a5c] border text-gray-400 text-sm py-3 px-4 bg-[#12171d] rounded-3xl"
-                placeholder="Enter email address..."
+                placeholder="Enter password"
               />
             </div>
 
@@ -81,8 +81,9 @@
 
   const showLoader = ref(false)
   const {objectToArray} = useConverters()
-
+  const {queryUser} = useFireBase()
   const route = useRouter()
+  const emit = defineEmits(['openSignup'])  // Declare Events
 
   // const props = defineProps<{
   //   showLogin: boolean
@@ -113,6 +114,7 @@
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          showLoader.value = false
           toast.add({ severity: 'error', summary: 'operation not successful', detail:'Login Failed', life: 3000, group:'fail' });
         });
         
@@ -126,6 +128,7 @@
       errorArray.forEach((error)=>{
         toast.add({ severity: 'error', summary: error.key, detail: error.value, life: 3000, group:'fail' });
       })
+      
       resetForm()
   }
 
@@ -135,5 +138,40 @@
 
   const onSubmit = handleSubmit(onSuccess, onInvalidSubmit);
 
+  // Google Sign in
+
+  const googleSignIn = async()=>{
+    showLoader.value = true
+    const provider = new GoogleAuthProvider();
+    const response = await signInWithPopup(FIREBASE_AUTH, provider);
+    const user = response.user
+    // showLoader.value = false
+    // route.replace('/')
+    // console.log(response.user)
+    const userExists = await queryUser()
+
+    if(userExists) { // if user already exists with same email we route forward
+      showLoader.value = false
+      return route.push('/');
+    }
+
+    showLoader.value = false
+    emit('openSignup')
+
+  }
+
 
   </script>
+  <style>
+  * {
+  font-family: 'cabinetGrotesk', sans-serif;
+ }
+
+ .extraboldCabinet{
+  font-family: 'cabinetGroteskBold', sans-serif;
+ }
+
+ .blackCabinet{
+  font-family: 'cabinetGroteskBlack', sans-serif;
+ }
+  </style>

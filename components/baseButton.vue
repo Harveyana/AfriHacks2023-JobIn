@@ -1,13 +1,14 @@
 <template>
     <button
-      class="text-sm text-center rounded-full hover:shadow-md hover:shadow-[#0c66ee]/50 transition duration-300"
-      v-bind="$attrs"
-      v-on="$listeners"
-    >
+      :class="`w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-3`">
       <slot></slot>
     </button>
   </template>
 
   <script setup lang="ts">
+
+  // const props = defineProps<{
+  //     color: string;
+  // }>()
   
   </script>

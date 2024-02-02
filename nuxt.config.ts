@@ -1,14 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // devtools: { enabled: true },
+  devtools: { enabled: false },
+  css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-primevue'
+    'nuxt-primevue',
+    'radix-vue/nuxt',
+    '@vueuse/nuxt',
+    '@nuxtjs/color-mode'
   ],
+  colorMode: {
+    classSuffix: '',
+    preference: 'light',
+    fallback: 'light'
+  },
   ssr: false,
   app: {
     head: {
-      title: "JobIn",
+      title: "JobRoute Ai",
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,7 +32,7 @@ export default defineNuxtConfig({
     cssLayerOrder: 'tailwind-base, primevue, tailwind-utilities',
     components: {
       // include: '*',
-      include: ['InputText', 'Button', 'Dialog','Toast','ProgressSpinner','Ripple','Sidebar','Menu','SelectButton','InputNumber','TabView','TabPanel','DataTable','Column','ColumnGroup','Row'],
+      include: ['Editor', 'Button', 'Dialog','Toast','ProgressSpinner','Ripple','Sidebar','Menu','SelectButton','InputNumber','TabView','TabPanel','Upload'],
     },
     directives: {
       include: '*'
