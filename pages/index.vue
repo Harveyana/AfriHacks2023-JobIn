@@ -190,7 +190,7 @@ const convertResumeToString = (resume:any)=> {
 
 const generate = async (doc:string)=>{
       showLoader.value = true
-      const response = await axios.post(`http://localhost:5000/api/generate/${doc}`, {
+      const response = await axios.post(`https://jobroutes-backend.onrender.com/api/generate/${doc}`, {
         userDetails: user.value.userDetails,
         description: description.value
       }, {

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full overflow-y-scroll bg-[#f6f6f6] dark:bg-[#0b1015] ">
+  <div class="w-full h-full overflow-y-scroll bg-[#0b1015]">
 
     <!-- Container -->
     <section class="w-full h-full flex flex-row items-center justify-center ">

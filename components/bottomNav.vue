@@ -39,10 +39,12 @@
                     </span>
             </NuxtLink>
 
-            <NuxtLink href="/referral" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-1.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
+            <NuxtLink href="/more" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-1.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
                 
-                <svg class="w-5 mx-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path :class="{ ' stroke-black fill-black dark:fill-white': $route.name == 'referral' }"  class="stroke-[#71787b] stroke-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0"/></svg>
-                    
+                <svg class="w-5 mx-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path :class="{ ' stroke-black fill-black dark:fill-white': $route.name == 'more' }"  class="stroke-[#71787b] stroke-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0"/></svg>
+                <span v-if="$route.name === 'more'">
+                    More
+                </span>
             </NuxtLink>
 
             

@@ -61,13 +61,34 @@
   ]
  });
 
-const tab = ref('tab1');
+ const route = useRoute()
+ const router = useRouter()
+
+const tab = ref(route.query.tab ? route.query.tab : 'tab1');
 
 const visible = ref(false)
 
 const openDialog = ()=>{
   visible.value = true
 }
+
+watch(tab, async (newtab, oldtab) => {
+  router.push({
+        path: '/account',
+        query: { tab: newtab },
+   })
+})
+
+onMounted(() => {
+  console.log(route.params.tab)
+  if(!route.params.tab){
+    router.push({
+        path: '/account',
+        query: { tab: 'tab1' },
+   })
+  }
+  
+})
 
 </script>
 

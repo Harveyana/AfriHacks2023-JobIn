@@ -1,42 +1,133 @@
 <template>
-  <section class="w-full h-full overflow-scroll">
+  <section class="w-full h-full overflow-scroll  dark:bg-[#12171d]">
       
       <BaseSection>
-        <div class="col-span-12 flex flex-col sm:flex-row items-center justify-center mt-6 px-4 space-y-4 sm:space-y-0 sm:space-x-3 mb-20 sm:px-0">
-          <div v-for="resource in resources" :key="resource.name" class="w-full h-fit lg:h-full sm:w-[23%] p-5 sm:py-5 sm:px-3 bg-white dark:bg-[#12171d] flex flex-col items-center rounded-2xl">
+        <div class="col-span-12 h-fit flex flex-col items-start justify-start mt-6 space-y-6">
 
-            <div class="w-full sm:h-[50%] sm:w-[80%] flex flex-row items-center justify-center">
-              <img
-                
-                :src=resource.image
-                class="w-full"
-                alt=""
-              />
+          <NuxtLink :to="{path: '/account',query: { tab:'tab1' }}" class="w-full flex flex-row items-center justify-start space-x-3">
+              <div class="w-[22%]">
+                <img v-if="user" :src="user.photoUrl" class="w-full cursor-pointer p-1 rounded-[50px] bg-green-300" />
+              </div>
 
-            </div>
-              
-              <div class="w-full flex items-start justify-start mb-4">
+              <div class="w-[50%]">
+                <span v-if="user" class="extraboldCabinet cursor-pointer truncate text-xl text-black dark:text-white">
+                  {{user.displayName}}
+                </span>
+                <baseButton
+                @click="$router.push({path: '/account',query: { tab:'tab1' }})"
+                class="w-30 border hover:bg-black hover:text-white border-black dark:border-white py-1 bg-white dark:bg-[#12171d] text-xs text-black dark:text-white"
+                >
+                  <span>View Profile</span>
+                </baseButton>
+
+              </div>
+
+          </NuxtLink>
+
+            
+            <!-- <div class="w-full flex items-start justify-start mb-4">
                 <baseButton
                 class="border hover:bg-black hover:text-white mt-3 border-black dark:border-white w-[40] px-3 py-1 bg-white dark:bg-[#12171d] text-xs text-black dark:text-white flex items-center justify-center"
                 >
                   <span>Coming Soon</span>
                 </baseButton>
-              </div>
+            </div> -->
               
 
-              <div class="w-full flex space-y-1 flex-col items-start justify-start">
-                <h1 class="text-xl dark:text-white extraboldCabinet"
-                >
-                 {{resource.name}}
-                </h1>
-                <p class=" text-xs lg:text-sm cabinet text-gray-500 paragraph">
-                  {{resource.about}}
-                </p>
+            <div class="w-full flex flex-col items-start justify-start space-y-6">
+              <span class="extraboldCabinet cursor-pointer truncate text-lg text-gray-500 dark:text-white">
+                Settings
+              </span>
+
+              <NuxtLink :to="{path: '/account',query: { tab:'tab2' }}" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/account.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Account
+                  </h1>
+                </div>
+
+              </NuxtLink>
+
+              <NuxtLink :to="{path: '/account',query: { tab:'tab3' }}" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/bell.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Notifications and Appearance
+                  </h1>
+                </div>
+
+              </NuxtLink>
+
+              <NuxtLink :to="{path: '/account',query: { tab:'tab4' }}" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/card.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Subscriptions
+                  </h1>
+                </div>
+
+              </NuxtLink>
+          
+            </div>
+
+            <div class="w-full flex flex-col items-start justify-start space-y-6">
+              <span class="extraboldCabinet cursor-pointer truncate text-lg text-gray-500 dark:text-white">
+                Support
+              </span>
+
+              <NuxtLink :to="{path: '/resources'}" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/resource.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Resources
+                  </h1>
+                </div>
+
+              </NuxtLink>
+
+              <NuxtLink :to="{path: ''}" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/help.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Help Center
+                  </h1>
+                </div>
+
+              </NuxtLink>
+
+              <div @click="logout()" class="w-full flex flex-row items-center justify-start space-x-3">
+                <div class="w-[15%]">
+                  <img src="~/assets/img/logout.svg" class="w-full border border-white cursor-pointer rounded-[50px]" />
+                </div>
+
+                <div class="w-full">
+                  <h1 class="extraboldCabinet cursor-pointer text-sm text-black dark:text-white">
+                    Logout
+                  </h1>
+                </div>
+
               </div>
+          
+            </div>
 
 
           </div>
-        </div>
         
       </BaseSection>
 
@@ -45,36 +136,24 @@
     </section>
 </template>
 <script setup lang="ts">
+import { getAuth, signOut } from "firebase/auth";
 
-import youtubeImage from '~/assets/img/youtube.svg'
-import newsLetterImage from '~/assets/img/newsletter.svg'
-import podcastImage from '~/assets/img/podcast.svg'
-import eventsImage from '~/assets/img/events.svg'
+const state = useGlobalState()
+const user = state.user
 
-      
-const resources:{name:string;about:string;image:string}[] = [
-  {
-    name:'Youtube',
-    about:'Learn from industry experts in our network who have successfully landed international career opportunities.',
-    image: youtubeImage
-  },
-  {
-    name:'Newsletter',
-    about:'Access all the resources you need to succeed in your career either as a newbie, mid-level, senior level, or Expat talent in your field and region.',
-    image: newsLetterImage
-  },
-  {
-    name:'Podcast',
-    about:'Listen to insightful career and relocation advice on the go shared by experts who are succeeding in their career.',
-    image: podcastImage
-  },
-  {
-    name:'Events',
-    about:'Attend our virtual and physical events hosted for global talents by global talents like you.',
-    image: eventsImage
-  }
+const router = useRouter()
 
-]
+const logout = ()=>{
+  const auth = getAuth();
+    signOut(auth).then(() => {
+      router.push('/auth')
+    }).catch((error) => {
+     console.log(error)
+  });
+}
+
+
+
 </script>
 
 <style scoped>

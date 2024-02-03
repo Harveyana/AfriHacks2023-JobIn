@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "workspace12",
     "public": ".output/public",
     "ignore": [
       "firebase.json",

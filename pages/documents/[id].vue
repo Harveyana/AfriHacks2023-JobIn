@@ -17,9 +17,9 @@
  
            <div class="w-full overflow-x-hidden flex flex-col space-y-4 h-[85%] bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3 overflow-scroll">
  
-           <ChatRequest :data="chatRequest"/>
+           <!-- <ChatRequest :data="chatRequest"/> -->
  
-             <ChatResponse :data="chatResponse"/>
+             <!-- <ChatResponse :data="chatResponse"/> -->
            
            </div>
  
