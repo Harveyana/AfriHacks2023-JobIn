@@ -134,7 +134,7 @@
           console.log(user)
 
           // if(values.email && values.name ){
-          const profile:user = {uid:user.uid,displayName:values.name||'',email:values.email||'',phoneNumber:'',photoUrl:''}
+          const profile:user = {uid:user.uid,displayName:values.name||'',email:values.email||'',phoneNumber:'',photoUrl:'https://firebasestorage.googleapis.com/v0/b/jobroute-58c44.appspot.com/o/Group%2014%20Copy%202.png?alt=media&token=4233232f-eca6-442d-a5d4-9fd9d0ea5e43'}
           await addUser(profile)
 
           // send Verification email
