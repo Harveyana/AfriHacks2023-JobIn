@@ -5,6 +5,8 @@
       >
 
       <div class="overflow-visible flex flex-col items-center justify-center w-full lg:w-1/2 p-4 rounded-2xl bg-white dark:bg-[#12171d] space-y-8">
+        <svg @click="$router.back" class="sm:hidden ml-3 mr-auto stroke-black dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 352l-64-64l64-64"/><path fill="none" class="stroke-black dark:stroke-white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M64 288h294c58.76 0 106-49.33 106-108v-20"/></svg>
+
         <h1 class="cabinetGroteskBlack font-bold text-xl dark:text-white text-left ml-3 mr-auto mb-2">NOTIFICATIONS</h1>
         <span @click="toggleTheme()" class="text-lg dark:text-white text-black text-left mr-auto ml-3 mb-2">Email notifcations</span>
 

@@ -5,7 +5,8 @@
       :value="props.value"
       >
 
-        <div class="flex flex-col lg:flex-row items-start justify-between w-full lg:w-[75%] rounded-2xl bg-white dark:bg-[#12171d] space-x-2">
+        <div class="flex flex-col lg:flex-row items-start justify-between w-full lg:w-[75%] rounded-2xl bg-white dark:bg-[#12171d] sm:space-x-2">
+          <svg @click="$router.back" class="sm:hidden mt-3 ml-5 mr-auto stroke-black dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 352l-64-64l64-64"/><path fill="none" class="stroke-black dark:stroke-white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M64 288h294c58.76 0 106-49.33 106-108v-20"/></svg>
 
           <div class="w-full lg:w-[30%] h-fit space-y-4 lg:space-y-4 lg:h-full p-5 sm:p-6 bg-white dark:bg-[#12171d] flex flex-col items-start justify-between rounded-2xl">
 

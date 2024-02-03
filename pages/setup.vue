@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col flex items-center justify-start overflow-y-scroll">
+  <div class="w-screen sm:w-full h-full flex flex-col flex items-center justify-start overflow-y-scroll">
 
     <!-- Container -->
       
@@ -63,7 +63,11 @@
 <script setup lang="ts">
   
   definePageMeta({
-    layout: 'custom'
+    layout: 'custom',
+    // middleware: [
+    //   'auth',
+    //   // Add in more middleware here
+    // ]
   })
    
   const state = useGlobalState()

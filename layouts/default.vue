@@ -2,7 +2,7 @@
     <div class="h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl flex flex-wrap flex-row mx-auto overflow-hidden">
       <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/>
       <SideBar />
-      <section class="h-full relative w-full overflow-hidden sm:w-[75%] lg:w-[82%] grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
+      <section class="h-full relative min-w-screen overflow-hidden sm:w-[75%] lg:w-[82%] grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/>
         <div class="col-span-12 w-full max-h-screen overflow-hidden scroll-smooth mt-12 mb-12 sm:mb-0 sm:mt-14">
           <div class="w-full h-full">
@@ -36,8 +36,8 @@
 
 <script setup lang="ts">
 import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
-import { doc, onSnapshot } from "firebase/firestore"
-import type { user } from '../interfaces';
+// import { doc, onSnapshot } from "firebase/firestore"
+// import type { user } from '../interfaces';
 
 const state = useGlobalState()
 // const {getUser} = useFireBase()
@@ -45,17 +45,20 @@ const state = useGlobalState()
 // console.log(state.user.value)
 
 const showMobileMenu = ref(false)
-const openSetupDialog = ref(true)
+const openSetupDialog = ref(false)
 
 onMounted(async() => {
-  const userId = FIREBASE_AUTH.currentUser?.uid
-  if(userId){
-      onSnapshot(doc(FIREBASE_DB, "users", userId), (doc) => {
-        const userdoc = doc.data()
-        state.user.value = userdoc
-        if(userdoc?.userDetails) openSetupDialog.value = false
-        console.log("Current data: ", doc.data())
-      });
-    }
+  // const userId = FIREBASE_AUTH.currentUser?.uid
+
+  if(!state.user.value.userDetails) openSetupDialog.value = true
+
+  // if(userId){
+  //     onSnapshot(doc(FIREBASE_DB, "users", userId), (doc) => {
+  //       const userdoc = doc.data()
+  //       state.user.value = userdoc
+  //       if(userdoc?.userDetails) openSetupDialog.value = false
+  //       console.log("Current data: ", doc.data())
+  //     });
+  //   }
 })
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-full overflow-scroll  dark:bg-[#12171d]">
+  <section class="w-screen sm:w-full h-full overflow-scroll  dark:bg-[#12171d]">
       
       <BaseSection>
         <div class="col-span-12 h-fit flex flex-col items-start justify-start mt-6 space-y-6">
@@ -15,7 +15,7 @@
                 </span>
                 <baseButton
                 @click="$router.push({path: '/account',query: { tab:'tab1' }})"
-                class="w-30 border hover:bg-black hover:text-white border-black dark:border-white py-1 bg-white dark:bg-[#12171d] text-xs text-black dark:text-white"
+                class=" border hover:bg-black hover:text-white border-black dark:border-white py-1 bg-white dark:bg-[#12171d] text-xs text-black dark:text-white"
                 >
                   <span>View Profile</span>
                 </baseButton>
