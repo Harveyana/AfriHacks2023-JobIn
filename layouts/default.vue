@@ -7,7 +7,7 @@
 
         <div class="col-span-12 w-full overflow-hidden scroll-smooth">
           <div class="w-full h-screen flex flex-col relative">
-            <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/>
+            <Toolbar @openMenu="showMobileMenu = true"/>
             <slot/>
             <BottomNav />
           </div>
@@ -42,11 +42,11 @@
 </template>
 
 <script setup lang="ts">
-import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
+// import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
 // import { doc, onSnapshot } from "firebase/firestore"
 // import type { user } from '../interfaces';
 
-const state = useGlobalState()
+// const state = useGlobalState()
 // const {getUser} = useFireBase()
 
 // console.log(state.user.value)
@@ -54,18 +54,18 @@ const state = useGlobalState()
 const showMobileMenu = ref(false)
 const openSetupDialog = ref(false)
 
-onMounted(async() => {
-  // const userId = FIREBASE_AUTH.currentUser?.uid
+// onMounted(async() => {
+//   // const userId = FIREBASE_AUTH.currentUser?.uid
 
-  if(!state.user.value.userDetails) openSetupDialog.value = true
+//   if(!state.user.value.userDetails) openSetupDialog.value = true
 
-  // if(userId){
-  //     onSnapshot(doc(FIREBASE_DB, "users", userId), (doc) => {
-  //       const userdoc = doc.data()
-  //       state.user.value = userdoc
-  //       if(userdoc?.userDetails) openSetupDialog.value = false
-  //       console.log("Current data: ", doc.data())
-  //     });
-  //   }
-})
+//   // if(userId){
+//   //     onSnapshot(doc(FIREBASE_DB, "users", userId), (doc) => {
+//   //       const userdoc = doc.data()
+//   //       state.user.value = userdoc
+//   //       if(userdoc?.userDetails) openSetupDialog.value = false
+//   //       console.log("Current data: ", doc.data())
+//   //     });
+//   //   }
+// })
 </script>

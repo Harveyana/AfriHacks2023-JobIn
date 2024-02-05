@@ -31,7 +31,7 @@
 
   <script setup lang="ts">
   import { getAuth, signOut } from "firebase/auth";
-  import type { user } from '../interfaces';
+  // import type { user } from '../interfaces';
 
 
   const state = useGlobalState()
