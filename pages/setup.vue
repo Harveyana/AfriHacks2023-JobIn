@@ -61,6 +61,9 @@
 
 
 <script setup lang="ts">
+  definePageMeta({
+    layout: 'custom'
+  })
    
   const state = useGlobalState()
 
