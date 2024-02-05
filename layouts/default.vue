@@ -1,16 +1,23 @@
 <template>
-    <div class="h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl flex flex-wrap flex-row mx-auto overflow-hidden">
+    <div class="w-full h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl flex flex-wrap flex-row mx-auto overflow-hidden">
       <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/>
       <SideBar />
-      <section class="h-full relative min-w-screen overflow-hidden sm:w-[75%] lg:w-[82%] grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
-        <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/>
-        <div class="col-span-12 w-full max-h-screen overflow-hidden scroll-smooth mt-12 mb-12 sm:mb-0 sm:mt-14">
-          <div class="w-full h-full">
+      <section class="h-full w-full relative overflow-hidden sm:w-[75%] lg:w-[82%] grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
+        <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
+
+        <div class="col-span-12 w-full overflow-hidden scroll-smooth">
+          <div class="w-full h-screen flex flex-col relative">
+            <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/>
             <slot/>
+            <BottomNav />
           </div>
+          
         </div>
-        <BottomNav />
+        
       </section>
+      
+
+
 
       <BaseDialog :visible="openSetupDialog">
         <div class="w-full h-full rounded-3xl flex flex-col items-center justify-center bg-[#0b1015] py-10 px-8 space-y-5">

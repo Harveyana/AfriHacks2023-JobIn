@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full h-full overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
+  <div class="w-full z-10 h-screen overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
 
     <!-- Container -->
-    <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
+    <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 ">
 
         <div class="hidden lg:flex h-[92%] col-span-12 lg:col-span-3">
           <div class="w-full h-full bg-white dark:bg-[#12171d] rounded-2xl p-4">
@@ -36,7 +36,7 @@
               </h1>
             </div>
             <p  class="text-xs sm:text-sm text-center text-gray-500 cabinet paragraph mx-14 mt-4">
-                Paste the job description or a URL to the job description to get started
+                Paste the job description to get started
             </p>
 
           </div>
@@ -106,15 +106,17 @@
             
             <ProgressSpinner v-if="showLoader" class="" style="width: 50px; height: 50px" strokeWidth="8" fill="#ffff"
               animationDuration=".5s" aria-label="Custom ProgressSpinner" 
-          />
+           />
           </div>
+          
+          <!-- <BottomNav /> -->
         </div>
 
-        
+       
+
     </section>
-
   </div>
-
+  
 </template>
 
 <script setup lang="ts">
@@ -129,7 +131,7 @@ import axios from 'axios';
   const state = useGlobalState()
   const user = state.user
 const visible = ref(false)
-const description = ref('Product Designer')
+const description = ref('')
 const {getResume} = useGenerator()
 const showLoader = ref(false)
 

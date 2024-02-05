@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen sm:w-full h-full flex flex-col flex items-center justify-start overflow-y-scroll">
+  <div class="max-w-screen sm:w-full h-full flex flex-col flex items-center justify-start overflow-x-hidden overflow-y-scroll">
 
     <!-- Container -->
       
@@ -10,7 +10,7 @@
             Complete Account Setup
           </h1>-
           <p class="text-sm lg:text-xl text-[#555a5c] text-center flex flex-row items-center justify-center">
-            Complete your information 
+            Complete your information
           </p>
 
           <div class="w-[95%] flex flex-col items-start justify-center">
@@ -61,14 +61,6 @@
 
 
 <script setup lang="ts">
-  
-  definePageMeta({
-    layout: 'custom',
-    // middleware: [
-    //   'auth',
-    //   // Add in more middleware here
-    // ]
-  })
    
   const state = useGlobalState()
 
