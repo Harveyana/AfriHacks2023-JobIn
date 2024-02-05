@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen sm:w-full h-full flex flex-col flex items-center justify-start overflow-x-hidden overflow-y-scroll">
+  <div class="max-w-screen w-full sm:w-full h-full flex flex-col flex items-center justify-start overflow-x-hidden overflow-y-scroll">
 
     <!-- Container -->
       
