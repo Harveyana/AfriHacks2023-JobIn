@@ -41,11 +41,11 @@
           </div>
 
           <!-- Occupation -->
-          <div v-if="user?.userDetails.occupation" class="w-full flex flex-col items-start justify-center ">
+          <div v-if="user" class="w-full flex flex-col items-start justify-center ">
               <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">What do you do</span>
               <input
                 type="text"
-                v-model="user.userDetails.occupation"
+                v-model="user.email"
                 class="cabinet w-full border border-gray-200 dark:border-[#23282d] dark:text-gray-400 text-sm h-full py-3 lg:py-4 px-4 rounded-3xl bg-white dark:bg-[#12171d]"
                 placeholder="University of Abuja"
               />

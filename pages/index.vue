@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full z-10 overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
+  <div class="w-full h-[90%] z-10 overflow-hidden bg-[#f6f6f6] dark:bg-[#0b1015]">
 
     <!-- Container -->
     <section class="overflow-hidden w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 ">
