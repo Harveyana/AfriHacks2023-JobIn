@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full sm:h-[90%] overflow-hidden mb-2">
+    <div class="w-full h-[80%] overflow-hidden mb-2">
  
      <!-- Container -->
         <section class="overflow-hidden bg-transparent w-full h-full grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
