@@ -6,7 +6,7 @@
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
 
         <div class="col-span-12 w-full overflow-hidden scroll-smooth">
-          <div class="w-full h-[95vh] sm:h-full flex flex-col relative">
+          <div class="w-full h-full flex flex-col relative">
             <Toolbar @openMenu="showMobileMenu = true"/>
             <slot/>
             <BottomNav />
