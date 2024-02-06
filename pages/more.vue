@@ -131,7 +131,8 @@
         
       </BaseSection>
 
-      
+      <BottomNav />
+
 
     </section>
 </template>

@@ -9,7 +9,7 @@
           <div class="w-full h-full flex flex-col relative">
             <Toolbar @openMenu="showMobileMenu = true"/>
             <slot/>
-            <BottomNav />
+            <!-- <BottomNav /> -->
           </div>
           
         </div>

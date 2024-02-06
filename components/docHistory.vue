@@ -1,5 +1,5 @@
 <template>
-    <div class=" w-full">
+    <div class="h-full w-full">
               <div class="w-full flex flex-col items-start justify-center mb-3">
                 <!-- Time -->
                 <h4 class="cabinet font-semiBold text-xs sm:text-sm text-[#959a9c]" data-aos="fade-right" data-aos-once="true">

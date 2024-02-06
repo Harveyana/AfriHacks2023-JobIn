@@ -1,6 +1,6 @@
 
 <template>
-    <div class="relative bg-white z-20 dark:bg-[#12171d] h-fit max-h-[9%] col-span-12 w-full flex items-center justify-start sm:hidden px-2 py-2">
+    <div class="absolute bottom-0 bg-white z-20 dark:bg-[#12171d] h-fit max-h-[9%] col-span-12 w-full flex items-center justify-start sm:hidden px-2 py-2">
 
             <!-- Tabs -->
 

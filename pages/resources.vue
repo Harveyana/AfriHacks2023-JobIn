@@ -40,7 +40,8 @@
         
       </BaseSection>
 
-      
+      <BottomNav />
+
 
     </section>
 </template>
