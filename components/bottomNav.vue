@@ -1,31 +1,31 @@
 
 <template>
-    <div class="absolute bottom-0 bg-white z-20 dark:bg-[#12171d] h-fit max-h-[9%] col-span-12 w-full flex items-center justify-start sm:hidden px-2 py-2">
+    <div class="absolute bottom-0 bg-white z-20 dark:bg-[#12171d] h-fit h-[9%] col-span-12 w-full flex items-center justify-start sm:hidden px-2 py-2">
 
             <!-- Tabs -->
 
         <div class="w-full flex flex-rol justify-between items-center">
 
-            <NuxtLink href="/" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
-                    <svg class="w-4 mx-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path :class="{ 'stroke-white stroke-2 fill-black ': $route.path == '/' }" class="stroke-[#71787b] stroke-2 group-hover:stroke-black dark:group-hover:stroke-white" d="M7.6123 17.3111V14.763C7.6123 14.1125 8.14346 13.5852 8.79868 13.5852H11.1938C11.5085 13.5852 11.8102 13.7093 12.0327 13.9302C12.2552 14.1511 12.3802 14.4506 12.3802 14.763V17.3111C12.3782 17.5815 12.485 17.8416 12.677 18.0335C12.8689 18.2254 13.13 18.3333 13.4024 18.3333H15.0365C15.7997 18.3353 16.5323 18.0357 17.0726 17.5007C17.613 16.9656 17.9166 16.2391 17.9166 15.4815V8.22237C17.9166 7.61037 17.6434 7.02986 17.1705 6.63721L11.6117 2.22988C10.6447 1.45712 9.25924 1.48207 8.32114 2.28914L2.88916 6.63721C2.39393 7.01828 2.09794 7.60052 2.08331 8.22237V15.4741C2.08331 17.0532 3.3728 18.3333 4.96346 18.3333H6.56022C7.126 18.3333 7.58581 17.8802 7.58991 17.3185L7.6123 17.3111Z"/>
+            <NuxtLink href="/" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-2 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
+                    <svg class="w-4 mx-2" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path :class="{ 'stroke-black stroke-2 fill-black ': $route.path == '/' }" class="stroke-[#71787b] stroke-2 group-hover:stroke-black dark:group-hover:stroke-white" d="M7.6123 17.3111V14.763C7.6123 14.1125 8.14346 13.5852 8.79868 13.5852H11.1938C11.5085 13.5852 11.8102 13.7093 12.0327 13.9302C12.2552 14.1511 12.3802 14.4506 12.3802 14.763V17.3111C12.3782 17.5815 12.485 17.8416 12.677 18.0335C12.8689 18.2254 13.13 18.3333 13.4024 18.3333H15.0365C15.7997 18.3353 16.5323 18.0357 17.0726 17.5007C17.613 16.9656 17.9166 16.2391 17.9166 15.4815V8.22237C17.9166 7.61037 17.6434 7.02986 17.1705 6.63721L11.6117 2.22988C10.6447 1.45712 9.25924 1.48207 8.32114 2.28914L2.88916 6.63721C2.39393 7.01828 2.09794 7.60052 2.08331 8.22237V15.4741C2.08331 17.0532 3.3728 18.3333 4.96346 18.3333H6.56022C7.126 18.3333 7.58581 17.8802 7.58991 17.3185L7.6123 17.3111Z"/>
                     </svg>
                     <span v-if="$route.name === 'index'">
                         Home
                     </span>
             </NuxtLink>
 
-            <NuxtLink href="/documents" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
-                    <svg class="w-4 mx-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path :class="{ 'stroke-white stroke-2 fill-black': $route.path == '/documents' }" class="stroke-[#71787b] stroke-2 group-hover:stroke-black dark:group-hover:stroke-white" d="M7.50002 10H12.5M7.50002 13.3333H12.5M14.1667 17.5H5.83335C4.91288 17.5 4.16669 16.7538 4.16669 15.8333V4.16667C4.16669 3.24619 4.91288 2.5 5.83335 2.5H10.4882C10.7092 2.5 10.9212 2.5878 11.0774 2.74408L15.5893 7.25592C15.7456 7.4122 15.8334 7.62416 15.8334 7.84518V15.8333C15.8334 16.7538 15.0872 17.5 14.1667 17.5Z" />
+            <NuxtLink href="/documents" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-2 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
+                    <svg class="w-4 mx-2" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path :class="{ 'stroke-black stroke-2 fill-black': $route.path == '/documents' }" class="stroke-[#71787b] stroke-2 group-hover:stroke-black dark:group-hover:stroke-white" d="M7.50002 10H12.5M7.50002 13.3333H12.5M14.1667 17.5H5.83335C4.91288 17.5 4.16669 16.7538 4.16669 15.8333V4.16667C4.16669 3.24619 4.91288 2.5 5.83335 2.5H10.4882C10.7092 2.5 10.9212 2.5878 11.0774 2.74408L15.5893 7.25592C15.7456 7.4122 15.8334 7.62416 15.8334 7.84518V15.8333C15.8334 16.7538 15.0872 17.5 14.1667 17.5Z" />
                     </svg>
                     <span v-if="$route.name === 'documents'">
                         Documents
                     </span>
             </NuxtLink>
 
-            <NuxtLink href="/resources" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
-                    <svg class="w-4 mx-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <NuxtLink href="/resources" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-2 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
+                    <svg class="w-4 mx-2" width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="path-1-inside-1_2001_105366" fill="white">
                           <path  fill-rule="evenodd" clip-rule="evenodd" d="M20 12.8967H15.7695C14.2162 12.8956 12.9572 11.5331 12.9562 9.85092C12.9562 8.16869 14.2162 6.80621 15.7695 6.80518H20"/>
                         </mask>
@@ -39,7 +39,7 @@
                     </span>
             </NuxtLink>
 
-            <NuxtLink href="/more" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-1 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
+            <NuxtLink href="/more" class="cabinet w-fit sm:w-full text-xs text-[#71787b] group bg-white flex flex-row items-center justify-start rounded-xl py-2 px-2.5 dark:bg-transparent dark:text-[#71787b] hover:bg-[#f3f3f3] dark:hover:bg-[#1e2328] dark:hover:text-white hover:text-black">
                 
                 <svg class="w-5 mx-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path :class="{ ' stroke-black fill-black dark:fill-white': $route.name == 'more' }"  class="stroke-[#71787b] stroke-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0"/></svg>
                 <span v-if="$route.name === 'more'">

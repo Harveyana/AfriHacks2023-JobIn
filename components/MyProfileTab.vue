@@ -1,12 +1,12 @@
 <template>
 
     <div
-        class="col-span-12 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center mt-2"
+        class="col-span-12 h-fit mt-[18%] overflow-y-scroll rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center mt-2"
       :value="props.value"
       >
 
 
-      <div class="h-full flex flex-col items-center justify-center w-full lg:w-1/2 p-4 rounded-2xl bg-white dark:bg-[#12171d] space-y-4">
+      <div class="flex flex-col items-center justify-center w-full lg:w-1/2 p-4 rounded-2xl bg-white dark:bg-[#12171d] space-y-4">
         <svg @click="$router.back" class="sm:hidden ml-3 mr-auto stroke-black dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 352l-64-64l64-64"/><path fill="none" class="stroke-black dark:stroke-white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M64 288h294c58.76 0 106-49.33 106-108v-20"/></svg>
         <h1 class="cabinetGroteskBlack font-bold text-xl dark:text-white text-left ml-3 mr-auto mb-2">PROFILE</h1>
 

@@ -1,7 +1,7 @@
 <template>
 
     <div
-        class="col-span-12 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex flex-col lg:flex-row items-start justify-between mt-2"
+        class="col-span-12 mt-[15%] overflow-scroll rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex flex-col lg:flex-row items-start justify-between"
       :value="props.value"
       >
 

@@ -5,8 +5,8 @@
       <section class="h-full col-span-12 border border-white relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
 <!-- sm:w-[75%] lg:w-[82%] -->
-        <div class="col-span-12 grid grid-cols-12 overflow-hidden scroll-smooth">
-          <div class="col-span-12">
+        <div class="h-full col-span-12 grid grid-cols-12 overflow-hidden">
+          <div class="h-full col-span-12">
             <!-- <Toolbar @openMenu="showMobileMenu = true"/> -->
             <slot/>
             <!-- <BottomNav /> -->

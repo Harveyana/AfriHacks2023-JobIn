@@ -1,8 +1,9 @@
 <template>
-  <section class="w-screen sm:w-full h-full overflow-scroll  dark:bg-[#12171d]">
-      
-      <BaseSection>
-        <div class="col-span-12 h-fit flex flex-col items-start justify-start mt-6 space-y-6">
+  <section class="w-screen sm:w-full h-screen overflow-scroll dark:bg-[#12171d]">
+    <Toolbar />
+
+      <BaseSection class="my-[18%]">
+        <div class="col-span-12 h-full flex flex-col items-start justify-start mt-6 space-y-6">
 
           <NuxtLink :to="{path: '/account',query: { tab:'tab1' }}" class="w-full flex flex-row items-center justify-start space-x-3">
               <div class="w-[22%]">
