@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full z-10 overflow-y-scroll bg-[#f6f6f6] dark:bg-[#0b1015]">
-
+  <div class="col-span-12 h-full z-10 overflow-y-scroll bg-[#f6f6f6] dark:bg-[#0b1015]">
+    <Toolbar />
     <!-- Container -->
     <section class="w-full h-screen lg:h-full mb-[9%] lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 ">
 

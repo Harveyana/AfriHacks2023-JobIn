@@ -1,6 +1,6 @@
 
 <template>
-    <div class="hidden absolute z-10 bg-white sm:relative sm:h-[100vh] dark:bg-[#12171d] h-full w-[70%] sm:w-[25%] lg:w-[18%] items-center justify-start sm:flex px-2 py-4 ">
+    <div class="hidden absolute z-10 bg-white sm:relative sm:h-[100vh] dark:bg-[#12171d] h-full sm:col-span-3 lg:col-span-2 items-center justify-start sm:flex px-2 py-4 ">
         <div data-aos="fade-left" data-aos-once="true" class="h-full w-full flex flex-col justify-start items-center">
             
             <div data-aos="fade-up" data-aos-once="true" class=" w-full flex flex-wrap flex-row items-start lg:items-center justify-between rounded-2xl py-2 px-1">
@@ -15,7 +15,7 @@
                     <span class="">New Resume</span>
                 </button>
             </div>
-
+<!-- w-[70%] sm:w-[25%] lg:w-[18%] -->
             <!-- Tabs -->
 
             <ul class="w-full px-2 pt-6 sm:pt-11 space-y-4 flex flex-col justify-center items-center">

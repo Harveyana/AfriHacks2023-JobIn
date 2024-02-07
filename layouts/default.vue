@@ -1,13 +1,13 @@
 <template>
-    <div class="w-full h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl flex flex-wrap flex-row mx-auto overflow-hidden">
-      <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/>
+    <div class="h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl mx-auto grid grid-cols-12 mx-auto overflow-hidden">
+      <!-- <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/> -->
       <SideBar />
-      <section class="h-full w-full relative overflow-hidden sm:w-[75%] lg:w-[82%] grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
+      <section class="h-full col-span-12 border border-white relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
-
-        <div class="col-span-12 w-full overflow-hidden scroll-smooth">
-          <div class="w-full h-full flex flex-col relative">
-            <Toolbar @openMenu="showMobileMenu = true"/>
+<!-- sm:w-[75%] lg:w-[82%] -->
+        <div class="col-span-12 grid grid-cols-12 overflow-hidden scroll-smooth">
+          <div class="col-span-12">
+            <!-- <Toolbar @openMenu="showMobileMenu = true"/> -->
             <slot/>
             <!-- <BottomNav /> -->
           </div>
