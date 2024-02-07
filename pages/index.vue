@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-12 h-full z-10 overflow-y-scroll bg-[#f6f6f6] dark:bg-[#0b1015]">
+  <div class="w-full h-full z-10 overflow-y-scroll bg-[#f6f6f6] dark:bg-[#0b1015]">
     <Toolbar />
     <!-- Container -->
     <section class="w-full h-screen lg:h-full mb-[9%] lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 ">
@@ -115,7 +115,7 @@
             <input
               type="text"
               v-model="description"
-              class="cabinet w-[85%] sm:w-[92%] border border-gray-300 dark:border-[#23282d] dark:text-gray-400 text-xs lg:text-sm h-full py-4 px-4 bg-white dark:bg-[#12171d] rounded-3xl"
+              class="cabinet w-[85%] min-height-[16px] focus-none sm:w-[92%] border border-gray-300 dark:border-[#23282d] dark:text-gray-400 text-xs lg:text-sm h-full py-4 px-4 bg-white dark:bg-[#12171d] rounded-3xl"
               placeholder="Enter Job description here..."
             />
             <!-- <svg v-if="showLoader == false" @click="generate()" class=" dark:bg-white hover:bg-gray-800 stroke-black fill-black dark:hover:fill-black h-full border border-gray-400 rounded-[50%]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
