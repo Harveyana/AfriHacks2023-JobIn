@@ -4,14 +4,14 @@
       <!-- Row 1 -->
         <!--contact Media-->
         <div class="w-full flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Type</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Type<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['Email Address','LinkedIn','X(twitter)','Github','Instagram','Facebook']" placeholder="Type" @optionChanged="(value:string)=>{ contact.type = value}" />
         </div>
 
       <!-- Row 2 -->
       <!-- contact Value-->
         <div class="w-full flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">{{contact.type}}</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">{{contact.type}}<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="contact.value"

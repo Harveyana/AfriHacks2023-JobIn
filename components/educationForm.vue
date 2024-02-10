@@ -5,12 +5,12 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- From -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">From</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">From<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005']" placeholder="Year started" @optionChanged="(value:string)=>{ education.yearStarted = value}" />
         </div>
         <!-- TO -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">To</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">To<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005','Now']" placeholder="Year ended" @optionChanged="(value:string)=>{ education.yearEnded = value}" />
         </div>
 
@@ -19,7 +19,7 @@
       <!-- Row 2 -->
         <!-- Degree or certification -->
       <div class="w-full flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Degree or certification</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Degree or certification<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="education.certification"
@@ -32,7 +32,7 @@
       <!-- Row 3 -->
         <!-- School of institution -->
         <div class="w-full flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">School of institution</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">School or institution<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="education.institution"

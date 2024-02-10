@@ -1,10 +1,11 @@
 <template>
-    <div class="h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl mx-auto grid grid-cols-12 mx-auto overflow-hidden">
+    <SkeletonLoader v-if="loader" />
+    <div v-else class="h-screen bg-[#a6abac] dark:bg-[#0b1015] max-h-[50rem] border-2 border-black max-w-screen-xl mx-auto grid grid-cols-12 mx-auto overflow-hidden">
       <!-- <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/> -->
       <SideBar />
-      <section class="h-full col-span-12 border border-white relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
+      <section class="h-full col-span-12 relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
-<!-- sm:w-[75%] lg:w-[82%] -->
+        <!-- sm:w-[75%] lg:w-[82%] -->
         <div class="h-full col-span-12 grid grid-cols-12 overflow-hidden">
           <div class="h-full col-span-12">
             <!-- <Toolbar @openMenu="showMobileMenu = true"/> -->
@@ -19,7 +20,7 @@
 
 
 
-      <BaseDialog :visible="openSetupDialog">
+      <!-- <BaseDialog :visible="openSetupDialog">
         <div class="w-full h-full rounded-3xl flex flex-col items-center justify-center bg-[#0b1015] py-10 px-8 space-y-5">
           <img src="~/assets/img/email.svg" class="w-14 cursor-pointer p-1 rounded-[50px] mx-2 md:w-24" />
 
@@ -36,7 +37,7 @@
           </BaseButton>
 
         </div>
-      </BaseDialog>
+      </BaseDialog> -->
       
     </div>
 </template>
@@ -45,27 +46,36 @@
 // import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
 // import { doc, onSnapshot } from "firebase/firestore"
 // import type { user } from '../interfaces';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 // const state = useGlobalState()
 // const {getUser} = useFireBase()
 
 // console.log(state.user.value)
 
-const showMobileMenu = ref(false)
-const openSetupDialog = ref(false)
+// const showMobileMenu = ref(false)
+// const openSetupDialog = ref(false)
+const loader = ref(true)
+const nuxtApp = useNuxtApp()
+const router = useRouter()
 
-// onMounted(async() => {
-//   // const userId = FIREBASE_AUTH.currentUser?.uid
+onBeforeMount(async() => {
+   
+    // const user = nuxtApp.$auth.currentUser
+    
+    // if (!user) 
+  
 
-//   if(!state.user.value.userDetails) openSetupDialog.value = true
+    onAuthStateChanged(nuxtApp.$auth,(user) => {
+            if (user) {
+              loader.value = false
+            // ...
+            } else {
+            // User is signed out
+              return router.push('/auth');
+            }
+    })
 
-//   // if(userId){
-//   //     onSnapshot(doc(FIREBASE_DB, "users", userId), (doc) => {
-//   //       const userdoc = doc.data()
-//   //       state.user.value = userdoc
-//   //       if(userdoc?.userDetails) openSetupDialog.value = false
-//   //       console.log("Current data: ", doc.data())
-//   //     });
-//   //   }
-// })
+})
 </script>

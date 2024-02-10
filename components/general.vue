@@ -2,7 +2,7 @@
     <section class="w-full flex flex-col items-center justify-center space-y-4 lg:space-y-6 py-4">
       <!-- Name -->
       <div class="w-full flex flex-col items-start justify-center ">
-        <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">First and last name</span>
+        <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">First and last name <span class="text-red-600 text-lg">*</span></h2>
         <input
           type="text"
           v-model="general.name"
@@ -13,13 +13,13 @@
 
       <!-- Select Occupation -->
       <div class="w-full flex flex-col items-start justify-center ">
-        <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">What do you do?</span>
+        <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">What do you do?<span class="text-red-600 text-lg">*</span></h2>
         <BaseSelect :options="['Design','Engineering','Doctor']" placeholder="What do you do?" @optionChanged="(value:string)=>{ general.occupation = value}" />
       </div>
 
       <!-- Location -->
       <div class="w-full flex flex-col items-start justify-center ">
-        <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Location</span>
+        <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Location<span class="text-red-600 text-lg">*</span></h2>
         <input
           type="text"
           v-model="general.location"
@@ -30,7 +30,7 @@
 
       <!-- About-->
       <div class="w-full flex flex-col items-start justify-center ">
-        <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">About</span>
+        <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">About<span class="text-red-600 text-lg">*</span></h2>
         <textarea
           v-model="general.bio"
           :class="{ 'bg-transparent': general.bio == '' }"

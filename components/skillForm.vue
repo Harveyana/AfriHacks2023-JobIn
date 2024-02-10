@@ -4,7 +4,7 @@
       <!-- Row 1 -->
         <!--name-->
         <div class="w-full flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Skill</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Skill<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="skill.name"

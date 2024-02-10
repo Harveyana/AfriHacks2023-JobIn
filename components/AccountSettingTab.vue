@@ -1,7 +1,7 @@
 <template>
 
     <div
-        class="col-span-12 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center mt-2"
+        class="col-span-12 mt-[20%] sm:mt-2 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center"
       :value="props.value"
       >
 
@@ -60,7 +60,7 @@
 
           
           <!-- Occupation -->
-          <div v-if="user.userDetails.occupation" class="w-full flex flex-col items-start justify-center space-y-3 ">
+          <div class="w-full flex flex-col items-start justify-center space-y-3 ">
             <h1 class="cabinetGroteskBlack font-bold text-xl dark:text-white text-left ml-3 mr-auto">PASSWORD</h1>
               <span class="text-sm dark:text-white text-black text-left ml-3 mb-2">Change Password</span>
               <span class="text-sm w-[85%] text-[#555a5c] text-left ml-3 mb-2">Change your password frequently to keep your account secure,especially if you think it has been compromised.</span>

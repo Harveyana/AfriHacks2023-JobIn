@@ -60,7 +60,8 @@
       </button>
 
       <button v-if="!showLoader" @click="submit" class="extraboldCabinet text-xs lg:text-lg w-1/2 hover:bg-white bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-2.5">
-        <span class="text-black">Next</span>
+        <span v-if="skills.length" class="text-black">Next</span>
+        <span v-else class="text-black">Skip</span>
       </button>
 
       <ProgressSpinner v-if="showLoader" class="" style="width: 40px; height: 40px" strokeWidth="8" fill="#0000"
@@ -99,8 +100,9 @@
     if(skills.value[0]){
       showLoader.value = true
       const formSaved = await updateUserDetails('skills',skills.value)
-      if(formSaved) emit('next');showLoader.value = false
+      if(formSaved) emit('next');return showLoader.value = false
     }
+    return emit('next');
   }
 
   // const props = defineProps<{

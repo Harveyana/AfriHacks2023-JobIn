@@ -2,7 +2,7 @@
     <div class="w-full h-[80%] overflow-hidden mb-2">
         <Toolbar />
      <!-- Container -->
-        <section class="overflow-hidden bg-transparent w-full h-full mt-[15%] sm:my-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
+        <section class="overflow-hidden bg-transparent w-full h-full mt-[20%] sm:mt-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
 
             <!-- Table Container -->
             <div  class="h-full p-4 rounded-2xl bg-white dark:bg-[#12171d] overflow-y-scroll col-span-12">

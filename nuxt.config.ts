@@ -43,5 +43,9 @@ export default defineNuxtConfig({
     ripple: true,
     unstyled: true
   }
+  },
+  routeRules: {
+    // Homepage pre-rendered at build time
+    '/': { prerender: true },
   }
 })

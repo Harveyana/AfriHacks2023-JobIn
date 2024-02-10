@@ -5,7 +5,7 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Title -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Title</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Title<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="project.title"
@@ -15,7 +15,7 @@
         </div>
         <!-- Year -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">To</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Year<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005','Now']" placeholder="Project Year" @optionChanged="(value:string)=>{ project.year = value}" />
         </div>
 
@@ -25,7 +25,7 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Client -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Company or client</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Company or client<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="project.client"

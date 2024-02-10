@@ -11,8 +11,12 @@ export default defineNuxtRouteMiddleware((to, from) => {
     // if (!user) {
     //     return navigateTo('/auth');
     // }
+    
+
+
     if (process.client){
-            onAuthStateChanged(auth, (user) => {
+            const nuxtApp = useNuxtApp()
+            onAuthStateChanged(nuxtApp.$auth, (user) => {
             if (user) {
             
             const uid = user.uid;

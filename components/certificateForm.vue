@@ -5,12 +5,12 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Year Issued -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Issued</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Issued<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005']" placeholder="Year issued" @optionChanged="(value:string)=>{ certification.yearIssued = value}" />
         </div>
         <!-- Year Expires -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Expires</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Expires<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005','Never']" placeholder="Expires" @optionChanged="(value:string)=>{ certification.yearExpires = value}" />
         </div>
 
@@ -20,7 +20,7 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Name -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Name</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Name<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="certification.name"
@@ -30,7 +30,7 @@
         </div>
         <!-- Organization -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Organization</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Organization<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="certification.organisation"

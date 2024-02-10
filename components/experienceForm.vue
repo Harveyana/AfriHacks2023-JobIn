@@ -5,12 +5,12 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- From -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">From</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">From<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005']" placeholder="Year started" @optionChanged="(value:string)=>{ experience.yearStarted = value}" />
         </div>
         <!-- TO -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">To</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">To<span class="text-red-600 text-lg">*</span></h2>
           <BaseSelect :options="['1999','2000','2001','2002','2003','2004','2005','Now']" placeholder="Year ended" @optionChanged="(value:string)=>{ experience.yearEnded = value}" />
         </div>
 
@@ -20,7 +20,7 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Title -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Title</span>
+          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Title<span class="text-red-600 text-lg">*</span></span>
           <input
             type="text"
             v-model="experience.title"
@@ -30,7 +30,7 @@
         </div>
         <!-- Title -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Company</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Company<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="experience.company"
@@ -45,7 +45,7 @@
       <div class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Location -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Location</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">Location</h2>
           <input
             type="text"
             v-model="experience.location"
@@ -55,7 +55,7 @@
         </div>
         <!-- URL -->
         <div class="w-1/2 flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">URL</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">URL</h2>
           <input
             type="text"
             v-model="experience.url"
@@ -70,7 +70,7 @@
       <div v-for="(description, index) in experience.descriptions" :key="index" class="w-full flex flex-row items-center justify-between space-x-2 lg:space-x-4">
         <!-- Description -->
         <div class="w-[80%] flex flex-col items-start justify-center ">
-          <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">{{`description ${index + 1}`}}</span>
+          <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">{{`Description ${index + 1}`}}<span class="text-red-600 text-lg">*</span></h2>
           <input
             type="text"
             v-model="experience.descriptions[index]"
