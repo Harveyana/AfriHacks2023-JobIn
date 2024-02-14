@@ -7,8 +7,14 @@ export default defineNuxtConfig({
     'nuxt-primevue',
     'radix-vue/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxt/content',
+    '@sidebase/nuxt-pdf',
+    '@nuxt-alt/markdown-it'
   ],
+    markdownit: {
+      runtime: true
+  },
   colorMode: {
     classSuffix: '',
     preference: 'light',

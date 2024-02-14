@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute sm:relative z-10 col-span-12 w-full h-[9%] bg-white dark:bg-[#0b1015] flex flex-row items-center justify-end px-3  py-2">
+    <div class="absolute sm:relative z-10 col-span-12 w-full h-[9%] sm:h-fit bg-white dark:bg-[#0b1015] flex flex-row items-center justify-end px-3  py-2">
            <!-- hamburger icon for mobile only -->
             <!-- <svg @click="$emit('openMenu')" class='sm:hidden mr-auto cursor-pointer w-6 md:w-7 fill-black stroke-black dark:fill-white dark:stroke-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke-linejoin="round"><rect width="16" height="5" x="4" y="5" rx="1"/><rect width="16" height="5" x="4" y="14" rx="1"/></g></svg> -->
 

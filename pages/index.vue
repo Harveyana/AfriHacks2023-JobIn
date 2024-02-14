@@ -13,15 +13,17 @@
           </div>
         </div>
 
-        <div class="relative h-full mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
+        <div v-if="!showPreview" class="relative h-full mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
           <div v-if="true" class="h-[85%] w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
-            <ChatRequest :data="description" :expanse="requestExpanse" @seeMore="onExpand()" @seeLess="onshrink()" />
+            <ChatRequest :expanse="requestExpanse" @seeMore="onExpand()" @seeLess="onshrink()" @openDownload="openDownloadDialog = true" />
 
-            <ChatResponse :data="chatResponse" :expanse="responseExpanse" @seeMore="onshrink()" @seeLess="onExpand()" />
+            <ChatResponse :expanse="responseExpanse" @seeMore="onshrink()" @seeLess="onExpand()" @openDownload="openDownloadDialog = true" />
            
           </div>
+
+
 
           <div v-else class="h-[85%] w-full overflow-hidden flex flex-col items-center justify-center bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
@@ -45,7 +47,7 @@
           <div  class="h-fit w-full flex flex-row items-center justify-between py-1 px-2 rounded-2xl mt-2">
             <input
               type="text"
-              v-model="description"
+              v-model="state.chatRequest.value"
               class="cabinet w-[85%] sm:w-[92%] border border-gray-300 dark:border-[#23282d] dark:text-gray-400 text-xs lg:text-sm h-12 min-h-12 py-4 px-4 bg-white dark:bg-[#12171d] rounded-3xl"
               placeholder="Enter Job description here..."
             />
@@ -103,11 +105,8 @@
            />
           </div>
           
-          <!-- <BottomNav /> -->
         </div>
 
-
-       
 
     </section>
     <!-- INPUT FOR MOBILE -->
@@ -173,12 +172,19 @@
            />
     </div> -->
     <BottomNav />
+
+      
+    <!-- PREVIEWER -->
+      <Preview :open-download-dialog="openDownloadDialog" @closeDownloadDialog="openDownloadDialog = false" />
+
   </div>
+
   
 </template>t
 
 <script setup lang="ts">
 import axios from 'axios';
+import { exportToPDF } from '#imports'
 
   definePageMeta({
     middleware: [
@@ -186,17 +192,23 @@ import axios from 'axios';
       // Add in more middleware here
     ]
   });
-  const state = useGlobalState()
-  const user = state.user
+
+
+ 
+const state = useGlobalState()
+const user = state.user
 const visible = ref(false)
-const description = ref('')
+// const description = ref('')
 const {getResume} = useGenerator()
 const showLoader = ref(false)
 
+const openDownloadDialog = ref(false)
 const toggleState = ref(false)
 
 const requestExpanse = ref(30)
 const responseExpanse = ref(70)
+
+const showPreview = ref(false)
 
 const onExpand = ()=>{
   requestExpanse.value=70;responseExpanse.value=30
@@ -210,8 +222,8 @@ const onshrink = ()=>{
 const openDialog = ()=>{
   visible.value = true
 }
-const request = ref('')
-const chatResponse = ref('')
+// const request = ref('')
+// const chatResponse = ref('# Harvey Anafuwes Resume')
 
 const convertResumeToString = (resume:any)=> {
       let resumeString = '';
@@ -249,9 +261,10 @@ const convertResumeToString = (resume:any)=> {
 
 const generate = async (doc:string)=>{
       showLoader.value = true
-      const response = await axios.post(`https://jobroutes-backend.onrender.com/api/generate/${doc}`, {
+      const response = await axios.post(`http://localhost:5000/api/generate/${doc}`, {
         userDetails: user.value.userDetails,
-        description: description.value
+        description: state.chatRequest.value,
+        userId:user.value.uid
       }, {
         headers: {
           'Content-Type': 'application/json',
@@ -261,7 +274,7 @@ const generate = async (doc:string)=>{
       // chatResponse.value = response.data
       // const stringData = convertResumeToString(response.data)
       // console.log(stringData)
-      chatResponse.value = response.data
+      state.chatResponse.value = response.data
       // chatResponse.value = stringData
       showLoader.value = false
       

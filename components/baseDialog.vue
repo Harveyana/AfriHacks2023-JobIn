@@ -12,7 +12,7 @@
               style: 'backdrop-filter: blur(10px)'
           },
           root:{
-            class:' cabinet rounded-3xl shadow-[0_2px_10px] shadow-black transition ease-in-out duration-300'
+            class:'mx-2 sm:mx-0 cabinet rounded-3xl shadow-[0_2px_10px] shadow-black transition ease-in-out duration-300'
           },
           content:{
               class:'w-full h-full rounded-3xl'
