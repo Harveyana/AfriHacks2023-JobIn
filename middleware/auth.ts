@@ -23,7 +23,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
                 onSnapshot(doc(FIREBASE_DB, "users", uid), (doc) => {
                 const userdoc = doc.data()
                 state.user.value = userdoc
-                console.log("Current data: ", doc.data())
+                // console.log("Current data: ", userdoc?.docHistory)
                 });
             // ...
             } else {

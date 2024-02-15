@@ -13,6 +13,10 @@ import { useFireBase } from "./useFireBase"
 
      const showConfirmDialogue = ref(false)
 
+     const openSetupDialog = ref(false)
+
+     const docs = ref<any[]>(user.value?.docHistory)
+
      const chatResponse = ref('')
 
      const chatRequest = ref('')
@@ -27,6 +31,6 @@ import { useFireBase } from "./useFireBase"
     //    count.value++
     //  }
  
-     return {user,showConfirmDialogue,chatResponse,chatRequest}
+     return {user,showConfirmDialogue,chatResponse,chatRequest,docs,openSetupDialog}
    }
  )

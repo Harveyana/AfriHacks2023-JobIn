@@ -55,7 +55,7 @@
 
  onMounted(() => {
   console.log(route.params.id)
-})
+ })
        
     
  </script>
