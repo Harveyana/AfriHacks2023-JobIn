@@ -50,8 +50,8 @@ export default defineNuxtConfig({
     unstyled: true
   }
   },
-  routeRules: {
-    // Homepage pre-rendered at build time
-    '/': { prerender: true },
-  }
+  // routeRules: {
+  //   // Homepage pre-rendered at build time
+  //   '/': { prerender: true },
+  // }
 })
