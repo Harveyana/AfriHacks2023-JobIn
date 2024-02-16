@@ -82,8 +82,11 @@
   const emit = defineEmits(['next','previous'])
   const showLoader = ref(false)
 
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
+
   const display = ref('certifications')
-  const certifications = ref<certificate[]>([])
+  const certifications = ref<certificate[]>(userdetail.value?.certifications ? [...userdetail.value.certifications] :[])
 
   const addCertificate = (data:certificate)=>{   // Add certificate to array of certifications 
     certifications.value.push(data);

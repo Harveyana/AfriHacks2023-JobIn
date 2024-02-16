@@ -15,7 +15,7 @@
 
         <div v-if="!showPreview" class="relative h-full mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
-          <div v-if="true" class="h-[85%] w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
+          <div v-if="state.chatResponse.value !==''" class="h-[85%] w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
             <ChatRequest :expanse="requestExpanse" @seeMore="onExpand()" @seeLess="onshrink()" @openDownload="openDownloadDialog = true" />
 

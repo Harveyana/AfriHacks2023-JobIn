@@ -81,9 +81,10 @@
   const {updateUserDetails} = useFireBase()
   const emit = defineEmits(['next','previous'])
   const showLoader = ref(false)
-
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
   const display = ref('education')
-  const educationBackground = ref<education[]>([])
+  const educationBackground = ref<education[]>(userdetail.value?.education ? [...userdetail.value.education] : [])
 
   const addEducation = (data:education)=>{   // Add education to array of experiences 
     educationBackground.value.push(data);

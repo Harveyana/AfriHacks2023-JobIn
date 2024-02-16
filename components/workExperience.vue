@@ -79,8 +79,11 @@
 
   const showLoader = ref(false)
 
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
+
   const display = ref('experience')
-  const experiences = ref<experience[]>([])
+  const experiences = ref<experience[]>(userdetail.value?.experience ? [...userdetail.value.experience] : [])
 
   const addExperience = (data:experience)=>{   // Add experience to array of experiences 
     experiences.value.push(data);

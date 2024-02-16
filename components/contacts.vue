@@ -84,10 +84,12 @@
   const state = useGlobalState()
 
   const openConfirmedDialogue = state.showConfirmDialogue  // open confirmation state
-
+  
+  const userdetail = computed(() => state.user.value?.userDetails)
 
   const display = ref('contacts')
-  const contacts = ref<contact[]>([])
+  const contacts = ref<contact[]>(userdetail.value?.contacts ? [...userdetail.value.contacts] : [])
+
 
   const addContact= (data:contact)=>{   // Add contact to array of contacts 
     contacts.value.push(data);

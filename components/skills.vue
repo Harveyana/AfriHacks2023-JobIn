@@ -82,8 +82,12 @@
   const emit = defineEmits(['next','previous'])
   const showLoader = ref(false)
 
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
+
   const display = ref('skills')
-  const skills = ref<skill[]>([])
+  const skills = ref<skill[]>(userdetail.value?.skills ? [...userdetail.value.skills] : [])
+
 
   const addSkill= (data:skill)=>{   // Add skill to array of skills 
     skills.value.push(data);

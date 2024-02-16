@@ -5,7 +5,8 @@
       
     <section class=" w-full sm:w-[40%] lg:w-[33%] flex flex-col items-center justify-start pt-8 sm:pt-8 lg:pt-10 ">
 
-        <div class="w-full flex flex-col items-center justify-center space-y-5">
+        <div class="w-full flex flex-col items-center justify-center space-y-3">
+          <svg @click="$router.back" class="ml-3 mr-auto cursor-pointer stroke-white" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 352l-64-64l64-64"/><path fill="none" class="stroke-white" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M64 288h294c58.76 0 106-49.33 106-108v-20"/></svg>
           <h1  class="blackCabinet text-2xl lg:text-4xl text-center text-white font-bold" data-aos="fade-right" data-aos-once="true">
             Complete Account Setup
           </h1>-
@@ -61,10 +62,15 @@
 
 
 <script setup lang="ts">
+  
   definePageMeta({
+    middleware: [
+      'auth',
+      // Add in more middleware here
+    ],
     layout: 'custom'
-  })
-   
+  });
+
   const state = useGlobalState()
 
   const openConfirmedDialogue = state.showConfirmDialogue

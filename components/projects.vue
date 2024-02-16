@@ -81,9 +81,12 @@
   const {updateUserDetails} = useFireBase()
   const emit = defineEmits(['next','previous'])
   const showLoader = ref(false)
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
 
   const display = ref('project')
-  const projects = ref<project[]>([])
+  
+  const projects = ref<project[]>( userdetail.value?.projects ? [...userdetail.value.projects] : [])
 
   const addProject = (data:project)=>{   // Add project to array of projects 
     projects.value.push(data);

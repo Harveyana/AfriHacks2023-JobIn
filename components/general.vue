@@ -14,7 +14,7 @@
       <!-- Select Occupation -->
       <div class="w-full flex flex-col items-start justify-center ">
         <h2 class="text-sm text-[#555a5c] text-left ml-3 mb-2">What do you do?<span class="text-red-600 text-lg">*</span></h2>
-        <BaseSelect :options="['Design','Engineering','Doctor']" placeholder="What do you do?" @optionChanged="(value:string)=>{ general.occupation = value}" />
+        <BaseSelect :options="['Design','Engineering','Doctor']" :placeholder="`${userdetail?.occupation ? userdetail?.occupation :'What do you do?'}`" @optionChanged="(value:string)=>{ general.occupation = value}" />
       </div>
 
       <!-- Location -->
@@ -61,15 +61,19 @@
   const {updateUser} = useFireBase()
   const {isFormValid} = useFormValidator()
   const emit = defineEmits(['next']) 
+  const state = useGlobalState()
+  const userdetail = computed(() => state.user.value?.userDetails)
+
   const general = reactive(
     {
-      name:'',
-      occupation:'',
-      location:'',
-      bio:''
+      name: userdetail.value?.name ? userdetail.value?.name :'',
+      occupation:userdetail.value?.occupation ? userdetail.value?.occupation :'',
+      location:userdetail.value?.location ? userdetail.value?.location :'',
+      bio:userdetail.value?.bio ? userdetail.value?.bio :''
     }
   )
   const showLoader = ref(false)
+  
 
   const submit = async()=>{
     showLoader.value = true
@@ -82,6 +86,7 @@
   // const props = defineProps<{
   //     color: string;
   // }>()
+  console.log(userdetail.value)
   
   </script>
   <style scoped>
