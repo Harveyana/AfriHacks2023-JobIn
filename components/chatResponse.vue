@@ -17,7 +17,7 @@
               <div class="w-full sm:w-[90%] border border-gray-100 dark:border-[#23282d] bg-white dark:bg-[#0b1015] rounded-2xl h-full flex flex-col ">
                 <textarea
                   v-model="state.chatResponse.value"
-                  class="w-full cabinet dark:text-white text-xs sm:text-sm h-full p-3 bg-white dark:bg-[#0b1015] resize-none rounded-2xl">
+                  class="w-full no-scrollbar cabinet dark:text-white text-xs sm:text-sm h-full p-3 bg-white dark:bg-[#0b1015] resize-none rounded-2xl">
                 </textarea>
                 <div class="my-2 mx-2 flex flex-row items-center justify-between">
                   <div class="my-2 mx-2 flex flex-row items-center justify-start">
@@ -82,4 +82,14 @@
  .blackCabinet{
   font-family: 'cabinetGroteskBlack', sans-serif;
  }
+
+ .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
   </style>

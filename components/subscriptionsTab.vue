@@ -12,8 +12,27 @@
 
               <span class="text-sm lg:text-lg text-[#969ca5] text-left ml-3 mb-2">CURRENT PLAN</span>
               <img
-                
+               v-if="state.user.value.subscription.name == 'Senior Talent'"
+                src='~/assets/img/tag4.svg'
+                class="w-14 mb-2"
+                alt=""
+              />
+              <img
+                v-if="state.user.value.subscription.name == 'Midlevel'"
+                src='~/assets/img/tag3.svg'
+                class="w-14 mb-2"
+                alt=""
+              />
+              <img
+                v-if="state.user.value.subscription.name == 'Newbie'"
                 src='~/assets/img/tag2.svg'
+                class="w-14 mb-2"
+                alt=""
+              />
+
+              <img
+                v-else
+                src='~/assets/img/tag1.svg'
                 class="w-14 mb-2"
                 alt=""
               />
@@ -21,16 +40,16 @@
               <div class="flex space-y-1 flex-col items-start justify-start">
                 <h1 class="text-xl text-black dark:text-white extraboldCabinet"
                 >
-                  Newbie
+                  {{state.user.value.subscription.name}}
                 </h1>
                 <p data-aos="fade-down" data-aos-once="true" data-aos-delay="300" class="text-sm cabinet text-gray-500 paragraph">
-                  Best bet to find entry-level roles
+                  {{state.user.value.subscription.name == 'Senior Talent'? 'Supports better engagement':state.user.value.subscription.name == 'Midlevel'? 'Covers for competitive job offers':state.user.value.subscription.name == 'Newbie'?'Best bet to find entry-level roles':'upgrade for to boost'}}
                 </p>
               </div>
 
               <h1 class="text-lg extraboldCabinet"
                 >
-                <span class="text-sm cabinet text-gray-500 paragraph mx-1">5 resumes/cover letters daily</span>
+                <span class="text-sm cabinet text-gray-500 paragraph mx-1">Resumes/cover letters daily</span>
               </h1>
 
               <!-- <div class="flex flex-col space-y-2">
@@ -59,7 +78,7 @@
             <h1 class="cabinetGroteskBlack font-bold text-xl dark:text-white text-left ml-3 mr-auto">SUBSCRIPTION HISTORY</h1>
 
             <!-- Table Container -->
-            <div  class="h-full p-4 rounded-2xl bg-white dark:bg-[#12171d] overflow-y-scroll w-full">
+            <div v-if="transactions.length"  class="h-full p-4 h-20 rounded-2xl bg-white dark:bg-[#12171d] overflow-y-scroll w-full">
         
                 <!-- Heading Row -->
                 <div class="hidden bg-gray-200 dark:bg-[#0b1015] w-full sm:p-2 border-b border-gray-100 dark:border-[#23282d] sm:grid grid-cols-12 gap-2 sm:gap-x-4  dark:text-white text-black">
@@ -82,43 +101,22 @@
                 </div>
 
                 <!-- Data Row -->
-                <div class="row bg-white hover:bg-gray-200 cursor-pointer dark:hover:bg-[#0b1015] dark:bg-[#12171d] border-b border-gray-100 dark:border-[#23282d] w-full py-1 sm:p-2 grid grid-cols-12 gap-2 sm:gap-x-4">
+                <div v-for="transaction in transactions" :key="transaction.tx_ref" class="row bg-white hover:bg-gray-200 cursor-pointer dark:hover:bg-[#0b1015] dark:bg-[#12171d] border-b border-gray-100 dark:border-[#23282d] w-full py-1 p-2 grid grid-cols-12 gap-2 sm:gap-x-4">
                     <span class=" truncate col-span-8 sm:col-span-3 text-sm sm:text-sm  extraboldCabinet text-[#2E2E2E] dark:text-white flex items-center justify-start">
-                      2023-11-15 13:30
+                      {{transaction.created_at.slice(0,10)}} {{transaction.created_at.slice(11,16)}}
                     </span>
 
                     <span class=" text-center sm:text-left truncate pt-[2px] sm:py-0 col-span-3 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white flex items-center justify-start">
-                      Enterprise
+                      {{transaction.meta.plan}}
                     </span>
 
                     <span class="sm:py-0 col-span-9 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white flex items-center justify-start">
-                      $250.00
+                      ₦{{transaction.charged_amount}}
                     </span>
 
                     <span class="sm:py-0 col-span-9 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white">
                       <div class="extraboldCabinet text-xs w-full dark:border-white hover:bg-gray-300 dark:hover:bg-black bg-green-600  flex flex-1 items-center justify-center rounded-3xl p-1.5">
-                        <span class="text-black dark:text-white">Successful</span>
-                      </div>
-                    </span>
-
-                </div>
-
-                <div class="row bg-white hover:bg-gray-200 cursor-pointer dark:hover:bg-[#0b1015] dark:bg-[#12171d] border-b border-gray-100 dark:border-[#23282d] w-full py-1 sm:p-2 grid grid-cols-12 gap-2 sm:gap-x-4">
-                    <span class=" truncate col-span-8 sm:col-span-3 text-sm sm:text-sm  extraboldCabinet text-[#2E2E2E] dark:text-white flex items-center justify-start">
-                      2023-11-15 13:30
-                    </span>
-
-                    <span class=" text-center sm:text-left truncate pt-[2px] sm:py-0 col-span-3 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white flex items-center justify-start">
-                      Enterprise
-                    </span>
-
-                    <span class="sm:py-0 col-span-9 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white flex items-center justify-start">
-                      $250.00
-                    </span>
-
-                    <span class="sm:py-0 col-span-9 sm:col-span-3 text-xs sm:text-sm cabinet sm:extraboldCabinet text-[#71787B] dark:text-white">
-                      <div class="extraboldCabinet text-xs w-full dark:border-white hover:bg-gray-300 dark:hover:bg-black bg-green-600  flex flex-1 items-center justify-center rounded-3xl p-1.5">
-                        <span class="text-black dark:text-white">Successful</span>
+                        <span class="text-black dark:text-white capitalize">{{transaction.status}}</span>
                       </div>
                     </span>
 
@@ -126,6 +124,28 @@
 
 
             </div>
+
+            <div v-else class="w-full bg-white dark:bg-[#12171d] rounded-3xl flex flex-col items-center justify-center space-y-4 lg:space-y-8 py-20 mb-2 lg:mb-0">
+                <div class='w-[24%]'>
+                    <img
+                    src='~/assets/img/transEmpty.svg'
+                    class="w-full"
+                    alt=""
+                    />
+                </div>
+
+                <h1
+                    class="text-lg w-full text-black dark:text-white cabinet flex flex-col items-center justify-center"
+                    >
+                    Nothing here yet
+                    <p  class="text-xs sm:text-xs text-center text-gray-500 cabinet paragraph mx-14 mt-4">
+                    You will see a history of your subscriptions here
+                    </p>
+                </h1>
+
+            
+            </div>
+
           </div>
 
 
@@ -139,8 +159,8 @@
               <span class="text-sm lg:text-lg text-[#969ca5] text-left ml-3 mb-2">OTHER PLANS</span>
 
               <div class="w-full flex items-center justify-between">
-                <svg @click="reversePlan()" class="hover:bg-gray-200 dark:bg-gray-200 rounded-2xl cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.832 3 3 8.832 3 16s5.832 13 13 13s13-5.832 13-13S23.168 3 16 3m0 2c6.087 0 11 4.913 11 11s-4.913 11-11 11S5 22.087 5 16S9.913 5 16 5m1.78 4.28l-6 6l-.686.72l.687.72l6 6l1.44-1.44L13.937 16l5.28-5.28z"/></svg>
-                <svg @click="nextPlan()" class="hover:bg-gray-200 dark:bg-gray-200 rounded-2xl cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><path fill="currentColor" d="M48 256c0 114.87 93.13 208 208 208s208-93.13 208-208S370.87 48 256 48S48 141.13 48 256m257.37 0l-84.68-84.69a16 16 0 0 1 22.62-22.62l96 96a16 16 0 0 1 0 22.62l-96 96a16 16 0 0 1-22.62-22.62Z"/></svg>              
+                <svg @click="reversePlan()" class="hover:bg-gray-200 dark:bg-gray-200 rounded-2xl cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C8.832 3 3 8.832 3 16s5.832 13 13 13s13-5.832 13-13S23.168 3 16 3m0 2c6.087 0 11 4.913 11 11s-4.913 11-11 11S5 22.087 5 16S9.913 5 16 5m1.78 4.28l-6 6l-.686.72l.687.72l6 6l1.44-1.44L13.937 16l5.28-5.28z"/></svg>
+                <svg @click="nextPlan()" class="hover:bg-gray-200 dark:bg-gray-200 rounded-2xl cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 512 512"><path fill="currentColor" d="M48 256c0 114.87 93.13 208 208 208s208-93.13 208-208S370.87 48 256 48S48 141.13 48 256m257.37 0l-84.68-84.69a16 16 0 0 1 22.62-22.62l96 96a16 16 0 0 1 0 22.62l-96 96a16 16 0 0 1-22.62-22.62Z"/></svg>              
               </div>
 
               <NewbiePlan v-if="showPlan == 1"/>
@@ -161,9 +181,14 @@
 
   
   <script setup lang="ts">
+  import { collection, query, where, getDocs, onSnapshot } from "firebase/firestore";
+  import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
 
+  const transRef = collection(FIREBASE_DB, "transactions");
+
+  const transactions = ref<any>([])
   const state = useGlobalState()
-  const user = state.user
+  // const user = state.user
 
   const showPlan = ref(1)
 
@@ -179,6 +204,21 @@
     value:string
   }>()
 
+  
+
+  onMounted(async()=>{
+    const q = query(transRef, where("userId", "==", state.user.value?.uid));
+    // const querySnapshot = await getDocs(q);
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          transactions.value.push(doc.data());
+      });
+      console.log(transactions.value);
+    });
+
+
+  })
 
   </script>
   <style scoped>

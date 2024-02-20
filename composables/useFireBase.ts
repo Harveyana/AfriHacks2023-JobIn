@@ -25,6 +25,8 @@ export const useFireBase = () => {
   const nover = 'bright'
 
   async function addUser(user:user) {
+    const currentDate = new Date();
+
     // check if user already exists
     await setDoc(doc(FIREBASE_DB, "users", user.uid), {
       isSetupCompleted:false,
@@ -32,7 +34,12 @@ export const useFireBase = () => {
       displayName:user.displayName,
       email:user.email,
       phoneNumber:user.phoneNumber,
-      photoUrl:user.photoUrl
+      photoUrl:user.photoUrl,
+      subscription:{
+        credit: 1,
+        expires:`${new Date(currentDate.getTime() + (7 * 24 * 60 * 60 * 1000))}`,
+        name:'Free'
+      }
     });
     console.log('done saving')
     return true;

@@ -27,7 +27,7 @@
             <div class="border-[#555a5c] border w-[34%]"></div>
           </div>
 
-          <div class="w-full flex flex-col items-start justify-start space-y-6 ">
+          <form class="w-full flex flex-col items-start justify-start space-y-6 ">
             <!-- <span class="text-sm text-[#555a5c] text-left ">Continue with email address</span> -->
 
             <div class="w-full flex flex-col items-start justify-start space-y-3">
@@ -66,7 +66,7 @@
 
             <span @click="$emit('openLogin')" class="text-lg hover:text-[#555a5c] text-white text-left flex flex-row items-center justify-center cursor-pointer mb-10">Login <svg class="mx-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="none" stroke="white" d="m13.5 7.5l-4-4m4 4l-4 4m4-4H1"/></svg></span>
             
-          </div>
+          </form>
         </div>
 
       </div>
