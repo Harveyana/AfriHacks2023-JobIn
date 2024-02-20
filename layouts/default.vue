@@ -8,9 +8,9 @@
         <!-- sm:w-[75%] lg:w-[82%] -->
         <div class="h-full col-span-12 ">
           <!-- <div class="h-full col-span-12"> -->
-            <!-- <Toolbar @openMenu="showMobileMenu = true"/> -->
+            <Toolbar />
             <slot/>
-            <!-- <BottomNav /> -->
+            <BottomNav />
           <!-- </div> -->
           
         </div>

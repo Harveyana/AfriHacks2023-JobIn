@@ -1,8 +1,8 @@
 <template>
   <div class="w-full h-full z-10 no-scrollbar overflow-y-scroll scroll-smooth bg-[#f6f6f6] dark:bg-[#0b1015]">
-    <Toolbar />
+    <!-- <Toolbar /> -->
     <!-- Container -->
-    <section class="w-full h-[92%] 2xl:h-[70%] my-[16%] sm:my-0 lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 pb-4">
+    <section class="w-full h-[80vh] 2xl:h-[70%] my-[16%] sm:my-0 lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 pb-4">
 
         <div class="hidden lg:flex h-[95%] min-h-[95%] col-span-12 lg:col-span-3">
           <div class="w-full h-full bg-white dark:bg-[#12171d] rounded-2xl p-4">
@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <div v-if="!showPreview" class="relative h-[80vh] mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
+        <div v-if="!showPreview" class="relative h-full mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
           <div v-if="state.chatResponse.value !==''" class="h-[85%] lg:h-fit lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
@@ -111,7 +111,7 @@
 
     </section>
     
-    <BottomNav />
+    <!-- <BottomNav /> -->
 
       
     <!-- PREVIEWER -->
