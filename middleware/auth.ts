@@ -18,7 +18,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
             const nuxtApp = useNuxtApp()
             onAuthStateChanged(nuxtApp.$auth, (user) => {
             if (user) {
-            
             const uid = user.uid;
                 onSnapshot(doc(FIREBASE_DB, "users", uid), (doc) => {
                 const userdoc = doc.data()
