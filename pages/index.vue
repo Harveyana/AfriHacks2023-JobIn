@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full h-[80%] z-10 no-scrollbar overflow-y-scroll scroll-smooth bg-[#f6f6f6] dark:bg-[#0b1015]">
+  <div class="w-full h-full z-10 no-scrollbar overflow-y-scroll scroll-smooth bg-[#f6f6f6] dark:bg-[#0b1015]">
     <!-- <Toolbar /> -->
     <!-- Container -->
-    <section class="w-full h-full 2xl:h-[70%] my-[16%] sm:my-0 lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 pb-4">
+    <section class="w-full h-[94%] 2xl:h-[70%] my-[16%] sm:my-0 lg:mb-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4 pb-4">
 
         <div class="hidden lg:flex h-[95%] min-h-[95%] col-span-12 lg:col-span-3">
           <div class="w-full h-full bg-white dark:bg-[#12171d] rounded-2xl p-4">
