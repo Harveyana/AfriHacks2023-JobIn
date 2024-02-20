@@ -6,14 +6,14 @@
       <section class="h-full col-span-12 relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
         <!-- sm:w-[75%] lg:w-[82%] -->
-        <div class="h-full col-span-12 ">
+        <!-- <div class="h-full col-span-12 "> -->
           <!-- <div class="h-full col-span-12"> -->
             <Toolbar />
             <slot/>
             <BottomNav />
           <!-- </div> -->
           
-        </div>
+        <!-- </div> -->
         
       </section>
       
