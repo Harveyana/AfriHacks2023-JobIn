@@ -15,7 +15,7 @@
 
         <div v-if="!showPreview" class="relative h-[98%] min-h-[98%] mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
-          <div v-if="true" class="h-[85%] lg:h-fit lg:min-h-[80%] lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
+          <div v-if="state.chatResponse.value !==''" class="h-[85%] lg:h-fit lg:min-h-[80%] lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
             <ChatRequest :expanse="requestExpanse" @seeMore="onExpand()" @seeLess="onshrink()" @openDownload="openDownloadDialog = true" />
 
@@ -49,12 +49,12 @@
             
             <textarea
                   v-model="state.chatRequest.value"
-                  class="cabinet no-scrollbar w-[85%] sm:w-[92%] border border-gray-300 dark:border-[#23282d] dark:text-gray-400 text-xs lg:text-sm h-20 min-h-20 py-4 px-4 bg-white dark:bg-[#12171d] rounded-3xl"
+                  class="cabinet no-scrollbar w-full border border-gray-300 dark:border-[#23282d] dark:text-gray-400 text-xs lg:text-sm h-[48px] min-h-[48px] py-4 px-4 bg-white dark:bg-[#12171d] rounded-3xl"
                   placeholder="Enter Job description here..."
             />
 
-            <DropdownMenuRoot v-model:open="toggleState" class="z-20">
-              <DropdownMenuTrigger v-if="!state.showLoader.value"
+            <DropdownMenuRoot v-if="state.chatRequest.value !==''" v-model:open="toggleState" class="z-20">
+              <DropdownMenuTrigger
                 class="rounded-full z-20 w-12 h-12 inline-flex items-center justify-center text-grass11 bg-white outline-none hover:bg-green3 focus:shadow-[0_0_0_2px] focus:shadow-black"
                 aria-label="Customise options"
               >
@@ -164,6 +164,11 @@ const onExpand = ()=>{
   requestExpanse.value=70;responseExpanse.value=30
 }
 
+// const showButton = computed(() => {
+//     return state.chatResponse.value !==''
+//   })
+
+
 const onshrink = ()=>{
   requestExpanse.value=30;responseExpanse.value=70
 }
@@ -264,7 +269,7 @@ const generate = async (doc: string) => {
     state.ProgressNumber.value = 100;
 
     // Make axios request
-    const response = await axios.post(`http://localhost:5000/api/generate/${doc}`, {
+    const response = await axios.post(`https://jobroutes-backend.onrender.com/api/generate/${doc}`, {
       description: state.chatRequest.value,
       userId: state.user.value.uid
     }, {
