@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <div v-if="!showPreview" class="relative h-[98%] min-h-[98%] mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
+        <div v-if="!showPreview" class="relative h-[80vh] mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
           <div v-if="state.chatResponse.value !==''" class="h-[85%] lg:h-fit lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
