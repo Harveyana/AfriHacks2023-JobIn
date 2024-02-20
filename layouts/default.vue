@@ -7,11 +7,11 @@
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
         <!-- sm:w-[75%] lg:w-[82%] -->
         <!-- <div class="h-full col-span-12 "> -->
-          <!-- <div class="h-full col-span-12"> -->
+          <div class="h-full col-span-12">
             <Toolbar />
             <slot/>
             <BottomNav />
-          <!-- </div> -->
+          </div>
           
         <!-- </div> -->
         
