@@ -1,9 +1,9 @@
 <template>
     <SkeletonLoader v-if="loader" />
-    <div v-else class="h-[100vh] bg-[#a6abac] dark:bg-[#0b1015] max-h-screen 2xl:max-h-[80vh] border-2 border-black max-w-screen-xl my-auto mx-auto grid grid-cols-12 mx-auto overflow-hidden">
+    <div v-else class="h-[90vh] bg-[#a6abac] dark:bg-[#0b1015] max-h-screen 2xl:max-h-[80vh] border-2 border-black max-w-screen-xl my-auto mx-auto grid grid-cols-12 mx-auto overflow-hidden">
       <!-- <MobileMenu :show-menu="showMobileMenu" @closeMenu="showMobileMenu = false"/> -->
       <SideBar />
-      <section class="h-full col-span-12 relative overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
+      <section class="h-full col-span-12 overflow-hidden sm:col-span-9 lg:col-span-10 grid grid-cols-12 gap-x-2 bg-[#f6f6f6] dark:bg-[#0b1015]">
         <!-- <Toolbar :user="state.user" @openMenu="showMobileMenu = true" :new="true"/> -->
         <!-- sm:w-[75%] lg:w-[82%] -->
         <!-- <div class="h-full col-span-12 "> -->
