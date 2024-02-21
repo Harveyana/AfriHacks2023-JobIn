@@ -62,6 +62,13 @@ const resources:{name:string;about:string;image:string;link:string;action:string
     action:'Subscribe'
   },
   {
+    name:'Events',
+    about:'Attend our virtual and physical events hosted for global talents by global talents like you.',
+    image: eventsImage,
+    link:'https://lu.ma/u/usr-OBJo1d5CofimkIh',
+    action:'Explore'
+  },
+  {
     name:'Newsletter',
     about:'Access all the resources you need to succeed in your career either as a newbie, mid-level, senior level, or Expat talent in your field and region.',
     image: newsLetterImage,
@@ -74,15 +81,7 @@ const resources:{name:string;about:string;image:string;link:string;action:string
     image: podcastImage,
     link:'#',
     action:'Coming Soon'
-  },
-  {
-    name:'Events',
-    about:'Attend our virtual and physical events hosted for global talents by global talents like you.',
-    image: eventsImage,
-    link:'https://lu.ma/u/usr-OBJo1d5CofimkIh',
-    action:'Explore'
   }
-
 ]
 </script>
 
