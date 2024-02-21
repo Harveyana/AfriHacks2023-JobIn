@@ -1,5 +1,5 @@
 <template>
-<div class="w-full max-w-screen-xl h-screen bg-[#000000] flex items-center justify-center mx-auto no-scrollbar overflow-hidden">
+<div class="w-full max-w-screen-2xl h-screen bg-[#000000] flex items-center justify-center mx-auto no-scrollbar overflow-hidden">
  <slot/>
 </div>
 </template>
