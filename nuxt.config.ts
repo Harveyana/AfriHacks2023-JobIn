@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no' },
         // { hid: 'True seamless finance across borders', name: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses', content: 'Smart and secured mediums to effortlessly send and receive money for individuals and businesses' }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/jobInLogo.svg' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://firebasestorage.googleapis.com/v0/b/jobroute-58c44.appspot.com/o/JobRoutes%20logo%20SVG%201%20(2).png?alt=media&token=a668b178-01ac-40ba-ac16-41873c9b549d' }],
     },
   },
   primevue: {
