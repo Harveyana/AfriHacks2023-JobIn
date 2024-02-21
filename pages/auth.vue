@@ -49,7 +49,7 @@
 
 
 <script setup lang="ts">
-import { sendEmailVerification } from 'firebase/auth';
+  import { sendEmailVerification } from 'firebase/auth';
 
   
   definePageMeta({
@@ -59,7 +59,7 @@ import { sendEmailVerification } from 'firebase/auth';
   const state = useGlobalState()
   const user = state.user
   const route = useRoute();
-  const tab = computed(() => route.query.tab)
+  const tab = computed(() => route.query.tab? route.query.tab : 'login')
 
 
   const signup = ref(true)
