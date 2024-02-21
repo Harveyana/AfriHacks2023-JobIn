@@ -1,5 +1,5 @@
 <template>
-      <div class="w-full h-fit sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-4 overflow-y-scroll no-scrollbar pt-20">
+      <div class="w-full h-fit sm:w-[60%] lg:w-[40%] space-y-8 my-8 sm:space-y-4 overflow-y-scroll no-scrollbar pt-20">
 
         <div class="w-full flex flex-col items-center justify-center space-y-5">
           <h1 v-if="showLoader == false" class="blackCabinet text-5xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
@@ -60,11 +60,14 @@
               />
             </div>
 
-            <button @click="onSubmit" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-3">
-              <span class="text-[16px] text-black hover:text-gray-200 text-center">Create Account</span>
-            </button>
+            <div class="w-full flex flex-col items-start ">
+              <button @click="onSubmit" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-3">
+                <span class="text-[16px] text-black hover:text-gray-200 text-center">Create Account</span>
+              </button>
 
-            <span @click="$emit('openLogin')" class="text-lg hover:text-[#555a5c] text-white text-left flex flex-row items-center justify-center cursor-pointer mb-10">Login <svg class="mx-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="none" stroke="white" d="m13.5 7.5l-4-4m4 4l-4 4m4-4H1"/></svg></span>
+              <span @click="$emit('openLogin')" class="text-lg hover:text-[#555a5c] text-white text-left flex flex-row items-center justify-center cursor-pointer mt-1 ml-6">Login <svg class="mx-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="none" stroke="white" d="m13.5 7.5l-4-4m4 4l-4 4m4-4H1"/></svg></span>
+            </div>
+            
             
           </form>
         </div>
