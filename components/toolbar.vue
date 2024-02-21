@@ -30,7 +30,7 @@
 
               <DropdownMenuRoot v-model:open="toggleState">
                   <DropdownMenuTrigger
-                    class="rounded-full w-fit h-fit inline-flex items-center justify-center text-grass11 bg-white outline-none hover:bg-green3"
+                    class="rounded-full w-fit h-fit inline-flex items-center justify-center text-grass11 bg-white dark:bg-[#0b1015] outline-none hover:bg-green3"
                     aria-label="dropdown menu options"
                   >
                     <span v-if="user" @click="toggle" class="cabinet cursor-pointer truncate text-xs text-black dark:text-white">
