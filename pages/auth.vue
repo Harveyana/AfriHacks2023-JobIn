@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full overflow-y-scroll bg-[#0b1015]">
+  <div class="w- h-full overflow-y-scroll bg-[#0b1015] no-scrollbar">
 
     <!-- Container -->
     <section class="w-full h-full flex flex-row items-center justify-center ">
@@ -83,5 +83,15 @@ import { sendEmailVerification } from 'firebase/auth';
  .blackCabinet{
   font-family: 'cabinetGroteskBlack', sans-serif;
  }
+
+ .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
 
 </style>
