@@ -1,9 +1,8 @@
 <template>
   <section class="w-full h-screen overflow-scroll">
-    <Toolbar />
 
       <BaseSection class="my-[15%] sm:my-0">
-        <div class="col-span-12 h-fit flex flex-col sm:flex-row items-center justify-center mt-6 px-4 space-y-4 sm:space-y-0 sm:space-x-3 mb-20 sm:px-0">
+        <div class="col-span-12 h-fit flex flex-col sm:flex-row items-center sm:items-start justify-center mt-6 px-4 space-y-4 sm:space-y-0 sm:space-x-3 mb-20 sm:px-0">
           <div v-for="resource in resources" :key="resource.name" class="w-full h-fit lg:h-full sm:w-[23%] p-5 sm:py-5 sm:px-3 bg-white dark:bg-[#12171d] flex flex-col items-center rounded-2xl">
 
             <div class="w-full sm:h-[50%] sm:w-[80%] flex flex-row items-center justify-center">
