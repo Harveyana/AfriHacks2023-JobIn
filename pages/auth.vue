@@ -1,5 +1,5 @@
 <template>
-  <div class="w- h-full overflow-y-scroll bg-[#0b1015] no-scrollbar">
+  <div class="w-full h-full overflow-y-scroll bg-[#0b1015] no-scrollbar">
 
     <!-- Container -->
     <section class="w-full h-full flex flex-row items-center justify-center ">
