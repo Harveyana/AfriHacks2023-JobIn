@@ -88,7 +88,7 @@
   const {objectToArray} = useConverters()
   const {queryUser} = useFireBase()
   const route = useRouter()
-  const emit = defineEmits(['openSignup'])  // Declare Events
+  const emit = defineEmits(['openSignup','openLogin'])  // Declare Events
 
   // const props = defineProps<{
   //   showLogin: boolean

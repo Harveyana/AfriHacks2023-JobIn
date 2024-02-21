@@ -147,7 +147,10 @@
 
             if(FIREBASE_AUTH.currentUser)await sendEmailVerification(FIREBASE_AUTH.currentUser);
 
-             emit('showVerify',user.email)
+            emit('showVerify',user.email)
+
+            emit('openLogin')
+
 
           // if(response){
             showLoader.value = false
@@ -169,7 +172,7 @@
 
   }
 
-  function onInvalidSubmit() {    //  If form is not valid 
+  function onInvalidSubmit() {    //If form is not valid
       const errorArray = objectToArray(errors.value)
       showLoader.value = false
       errorArray.forEach((error)=>{
