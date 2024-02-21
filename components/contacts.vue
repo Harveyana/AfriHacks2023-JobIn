@@ -59,8 +59,8 @@
         <span>Previous</span>
       </button>
 
-      <button v-if="!showLoader" @click="submit" class="extraboldCabinet text-xs lg:text-lg w-fit hover:bg-white bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-2.5">
-        <span class="text-black">Finish Account Setup</span>
+      <button v-if="!showLoader" @click="submit" class="extraboldCabinet text-xs lg:text-lg w-[40%] hover:bg-white bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-2.5">
+        <span class="text-black">Complete</span>
       </button>
 
       <ProgressSpinner v-if="showLoader" class="" style="width: 40px; height: 40px" strokeWidth="8" fill="#0000"
