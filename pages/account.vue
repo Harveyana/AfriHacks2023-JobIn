@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-screen no-scrollbar overflow-scroll">
+  <div class="w-full no-scrollbar overflow-scroll">
     
-    <Toolbar />
+    <!-- <Toolbar /> -->
 
     <!-- Container -->
-        <section class="relative overflow-y-scroll no-scrollbar bg-transparent w-screen sm:w-full grid grid-cols-12 px-2">
+        <section class="relative max-h-[85%] overflow-y-scroll no-scrollbar bg-transparent w-screen sm:w-full grid grid-cols-12 px-2">
             
           <TabsRoot v-model:modelValue="tab" class="absolute z-10 sticky top-0 hidden sm:col-span-12 sm:grid col-span-10 h-fit" default-value="tab1">
             <TabsList class="h-full pr-[10%] relative shrink-0 flex" aria-label="Manage your account">

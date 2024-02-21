@@ -13,9 +13,9 @@
           </div>
         </div>
 
-        <div v-if="!showPreview" class="relative h-full mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
+        <div v-if="!showPreview" class="relative h-full lg:h-[90vh] 2xl:h-[70vh] mb-[2rem] sm:mb-0 flex flex-col items-center justify-start overflow-hidden col-span-12 lg:col-span-9">
 
-          <div v-if="state.chatResponse.value !==''" class="h-[85%] lg:h-fit lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
+          <div v-if="state.chatResponse.value !==''" class="h-[85%] lg:h-fit lg:min-h-[80%] lg:max-h-[80%]  w-full overflow-hidden flex flex-col space-y-4 bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
             <ChatRequest :expanse="requestExpanse" @seeMore="onExpand()" @seeLess="onshrink()" @openDownload="openDownloadDialog = true" />
 
@@ -25,7 +25,7 @@
 
 
 
-          <div v-else class="h-[85%] lg:h-fit lg:min-h-[80%] lg:max-h-[80%] w-full overflow-hidden flex flex-col items-center justify-center bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
+          <div v-else class="h-[85%]  lg:h-fit lg:min-h-[80%] lg:max-h-[80%] w-full overflow-hidden flex flex-col items-center justify-center bg-white dark:bg-[#12171d] rounded-2xl px-2 py-3">
 
             <div class="flex flex-row items-center justify-center space-x-3">
               <img src="~/assets/img/logo/JobRoutes.svg" class="sm:w-16 dark:hidden"/>

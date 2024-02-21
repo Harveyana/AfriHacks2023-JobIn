@@ -1,7 +1,7 @@
 <template>
 
     <div
-        class="col-span-12 mt-[20%] sm:mt-2 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center"
+        class="col-span-12 overflow-scroll no-scrollbar flex-none  pt-[20%] sm:pt-0 sm:mt-2 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center"
       :value="props.value"
       >
 
@@ -107,4 +107,14 @@
   .blackCabinet{
     font-family: 'cabinetGroteskBlack', sans-serif;
   }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
   </style>

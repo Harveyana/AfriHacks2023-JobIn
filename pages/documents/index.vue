@@ -1,6 +1,6 @@
 <template>
     <div class="w-full h-full sm:h-[95%] overflow-hidden mb-2">
-        <Toolbar />
+        <!-- <Toolbar /> -->
      <!-- Container -->
         <section class="overflow-hidden bg-transparent w-full h-[80%] sm:h-fit mt-[20%] sm:mt-0 grid grid-cols-12 gap-y-2 gap-x-4 pt-2 px-2 sm:px-4">
 
@@ -104,7 +104,7 @@
             </div>
         
         </section>
-        <BottomNav />
+        <!-- <BottomNav /> -->
 
 
        
