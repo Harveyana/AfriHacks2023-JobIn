@@ -3,11 +3,12 @@
 
     <!-- Container -->
     <section class="w-full h-full flex flex-row items-center justify-center ">
-
+      
+        <Login v-if="tab =='login'" />
         <!-- sign Up -->
-       <SignUp v-if="signup" @openLogin="signup = false" @show-verify="(email)=>{showVerify(email)}"/>
+        <SignUp v-if="tab =='signUp'" @show-verify="(email)=>{showVerify(email)}"/>
         <!-- Login -->
-        <Login v-else @openSignup="signup = true"/>
+        
         
     </section>
     <Toast group="success" severity='success' :pt="{
@@ -57,6 +58,9 @@ import { sendEmailVerification } from 'firebase/auth';
 
   const state = useGlobalState()
   const user = state.user
+  const route = useRoute();
+  const tab = computed(() => route.query.tab)
+
 
   const signup = ref(true)
 

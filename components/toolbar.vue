@@ -105,7 +105,7 @@
   const logout = () => {
     const auth = getAuth();
     signOut(auth).then(() => {
-      router.push('/auth')
+      router.push('auth?tab=login')
       }).catch((error) => {
         console.log(error)
       });
