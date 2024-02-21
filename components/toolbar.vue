@@ -6,10 +6,10 @@
             <span class="hidden cabinet capitalize sm:block font-semiBold mr-auto text-sm sm:text-lg text-black dark:text-white">
               {{ routeName }}
             </span>
-            <span class="relative sm:mx-4">
+            <!-- <span class="relative sm:mx-4">
               <span class="bg-red-500 rounded-2xl absolute right-0  w-3 h-3"></span>
               <svg class="w-6 md:w-7 dark:stroke-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10.146 3.248a2 2 0 0 1 3.708 0A7.003 7.003 0 0 1 19 10v4.697l1.832 2.748A1 1 0 0 1 20 19h-4.535a3.501 3.501 0 0 1-6.93 0H4a1 1 0 0 1-.832-1.555L5 14.697V10c0-3.224 2.18-5.94 5.146-6.752zM10.586 19a1.5 1.5 0 0 0 2.829 0h-2.83zM12 5a5 5 0 0 0-5 5v5a1 1 0 0 1-.168.555L5.869 17H18.13l-.963-1.445A1 1 0 0 1 17 15v-5a5 5 0 0 0-5-5z"/></svg>
-            </span>
+            </span> -->
             <img v-if="user" @click="toggle" :src="user.photoUrl" class="w-10 cursor-pointer p-1 rounded-[50px] bg-green-300 mx-3 md:my-1 md:w-8" />
             <!-- <span v-if="user" @click="toggle" class="cabinet cursor-pointer truncate text-xs text-black dark:text-white">
               {{user.displayName}}

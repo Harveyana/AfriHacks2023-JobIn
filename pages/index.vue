@@ -45,7 +45,7 @@
           </div>
 
           <!-- INPUT-->
-          <div id="Enter description" class="h-fit w-full flex flex-row items-end justify-between gap-x-3 pt-2 pb-4 px-2 rounded-2xl ">
+          <div id="Enter description" class="h-fit w-full flex flex-row items-start justify-between gap-x-3 pt-2 pb-4 px-2 rounded-2xl ">
             
             <textarea
                   v-model="state.chatRequest.value"
