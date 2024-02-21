@@ -1,8 +1,8 @@
 <template>
-  <section class="w-full h-screen overflow-scroll">
+  <section class="w-full h-screen overflow-scroll no-scrollbar">
 
       <BaseSection class="my-[15%] sm:my-0">
-        <div class="col-span-12 h-fit flex flex-col sm:flex-row items-center sm:items-start justify-center mt-6 px-4 space-y-4 sm:space-y-0 sm:space-x-3 mb-20 sm:px-0">
+        <div class="col-span-12 h-fit lg:h-[65vh] flex flex-col sm:flex-row items-center sm:items-start justify-center mt-6 px-4 space-y-4 sm:space-y-0 sm:space-x-3 mb-20 sm:px-0">
           <div v-for="resource in resources" :key="resource.name" class="w-full h-fit lg:h-full sm:w-[23%] p-5 sm:py-5 sm:px-3 bg-white dark:bg-[#12171d] flex flex-col items-center rounded-2xl">
 
             <div class="w-full sm:h-[50%] sm:w-[80%] flex flex-row items-center justify-center">
@@ -91,5 +91,15 @@ h1,.cabinet {
  .blackCabinet{
   font-family: 'cabinetGroteskBlack', sans-serif;
  }
+
+ .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
 
 </style>
