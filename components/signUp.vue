@@ -1,5 +1,5 @@
 <template>
-      <div class="w-full h-fit sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-4 overflow-y-scroll pt-20">
+      <div class="w-full h-fit sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-4 overflow-y-scroll no-scrollbar pt-20">
 
         <div class="w-full flex flex-col items-center justify-center space-y-5">
           <h1 v-if="showLoader == false" class="blackCabinet text-5xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
@@ -234,4 +234,14 @@
   .blackCabinet{
     font-family: 'cabinetGroteskBlack', sans-serif;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
   </style>
