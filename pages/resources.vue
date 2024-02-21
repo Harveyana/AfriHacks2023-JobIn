@@ -15,7 +15,7 @@
 
               </div>
               
-              <NuxtLink :to="resource.link" class="w-full flex items-start justify-start mb-4">
+              <NuxtLink :to="resource.link" target="_blank" class="w-full flex items-start justify-start mb-4">
                 <baseButton
                 class="border hover:bg-black hover:text-white mt-3 border-black dark:border-white w-[40] px-3 py-1 bg-white dark:bg-[#12171d] text-xs sm:text-sm text-black dark:text-white flex items-center justify-center"
                 >
