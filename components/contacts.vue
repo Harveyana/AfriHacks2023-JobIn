@@ -71,6 +71,7 @@
 
   </div>
       
+  <BaseToast :model="toast.show" :success="toast.success" :title="toast.title" :description="toast.description" @close="toast.show = false"/>
 
   </template>
 
@@ -79,6 +80,21 @@
 
   const {updateUserDetails,updateUserKey} = useFireBase()
   const emit = defineEmits(['next','previous'])
+
+  const toast = reactive({
+    show:false,
+    title:'',
+    description:'',
+    success:true
+  })
+
+  const initToast=(success:boolean,title:string,description:string)=>{
+    toast.title = title
+    toast.description = description
+    toast.success = success
+    toast.show = true
+  }
+
   const showLoader = ref(false)
 
   const state = useGlobalState()
@@ -102,6 +118,24 @@
   };    
   
   const submit = async()=>{
+
+    if (!state.user.value?.userDetails.experience || !state.user.value?.userDetails.experience[0]) {
+        // alert('Please enter a valid email address.');
+        initToast(false,'Experience Required','Your work experience is required')
+        return;
+    }
+
+    if (!state.user.value?.userDetails.education || !state.user.value?.userDetails.education[0]) {
+        // alert('Please enter a valid email address.');
+        initToast(false,'Education Required','Your educational background is required')
+        return;
+    }
+
+    if (!state.user.value?.userDetails.skills || !state.user.value?.userDetails.skills[0]) {
+        // alert('Please enter a valid email address.');
+        initToast(false,'Skills Required','Add a skill')
+        return;
+    }
     
     if(contacts.value[0]){
       showLoader.value = true

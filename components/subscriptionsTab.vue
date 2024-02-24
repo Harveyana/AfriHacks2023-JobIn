@@ -31,7 +31,7 @@
               />
 
               <img
-                v-else
+               v-if="state.user.value.subscription.name == 'Free'"
                 src='~/assets/img/tag1.svg'
                 class="w-14 mb-2"
                 alt=""

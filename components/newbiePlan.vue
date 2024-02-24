@@ -20,10 +20,10 @@
                 </p>
               </div>
 
-              <h1 class="text-lg extraboldCabinet"
+              <!-- <h1 class="text-lg extraboldCabinet"
                 >
                 <span class="text-sm cabinet text-gray-500 paragraph mx-1">Unique resumes/cover letters daily</span>
-              </h1>
+              </h1> -->
 
               <div class="flex flex-col space-y-2">
                 <h1 class="text-lg dark:text-white extraboldCabinet "
@@ -53,13 +53,13 @@
   <script setup lang="ts">
   import axios from 'axios';
   import {useFlutterwave} from "flutterwave-vue3"
-  import { doc, onSnapshot,setDoc } from "firebase/firestore"
-  import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
+  // import { doc, onSnapshot,setDoc } from "firebase/firestore"
+  // import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
   import { v4 as uuidv4 } from 'uuid';
 
   const route = useRoute()
   const state = useGlobalState()
-  const transactRef = computed(() => route.query.tx_ref)
+  // const transactRef = computed(() => route.query.tx_ref)
 
   type transaction = {
     amount:number,
@@ -76,7 +76,7 @@
   }
 
   const verifyTransaction = async(transaction:transaction)=>{
-    const response = await axios.post(`http://localhost:5000/api/payment/verify`, 
+    const response = await axios.post(`https://jobroutes-backend.onrender.com/api/payment/verify`, 
     transaction, 
     {
       headers: {
@@ -86,9 +86,9 @@
     console.log(response.data)
   }
 
-  watch(transactRef, async (newRef, oldId) => {
-     console.log(newRef,route.query.transaction_id)
-  })
+  // watch(transactRef, async (newRef, oldId) => {
+  //    console.log(newRef,route.query.transaction_id)
+  // })
   
   const pay = ()=>{
     useFlutterwave({

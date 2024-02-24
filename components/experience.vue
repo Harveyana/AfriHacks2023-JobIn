@@ -20,16 +20,23 @@
 
             </ol>
 
-            <button @click="emit('delete',index)" class="">
-              <span class="text-xs sm:text-sm hover:text-white text-gray-500 cabinet">Delete</span>
-            </button>
+            <div class="flex items-center justify-center gap-x-3">
+              <button @click="emit('update',index)" class="">
+                <span class="text-xs sm:text-sm hover:text-white text-gray-500 cabinet">Edit</span>
+              </button>
+
+              <button @click="emit('delete',index)" class="">
+                <span class="text-xs sm:text-sm hover:text-white text-gray-500 cabinet">Delete</span>
+              </button>
+            </div>
+            
     </div>
   </template>
 
   <script setup lang="ts">
   import type { experience } from '../interfaces';
 
-  const emit = defineEmits(['delete'])  // Declare Events
+  const emit = defineEmits(['delete','update'])  // Declare Events
 
   const props = defineProps<{
       experiences: experience[];

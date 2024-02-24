@@ -59,7 +59,7 @@
         <span>Previous</span>
       </button>
 
-      <button v-if="!showLoader" @click="submit" class="extraboldCabinet text-xs lg:text-lg w-1/2 hover:bg-white bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-2.5">
+      <button v-if="!showLoader" @click="$emit('next')" class="extraboldCabinet text-xs lg:text-lg w-1/2 hover:bg-white bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-2.5">
         <span v-if="skills.length" class="text-black">Next</span>
         <span v-else class="text-black">Skip</span>
       </button>
@@ -88,26 +88,28 @@
   const display = ref('skills')
   const skills = ref<skill[]>(userdetail.value?.skills ? [...userdetail.value.skills] : [])
 
+  
+  const submit = async()=>{
+    
+    // if(skills.value[0]){
+      showLoader.value = true
+      const formSaved = await updateUserDetails('skills',skills.value)
+      if(formSaved)return showLoader.value = false
+    // }
+    // return emit('next');
+  }
 
   const addSkill= (data:skill)=>{   // Add skill to array of skills 
     skills.value.push(data);
     display.value = 'skills'
+    submit();
     console.log(skills)
   }
 
   const deleteSkill = (index:number) => {   // Remove skill from array of skills
     skills.value.splice(index, 1);
-  };    
-  
-  const submit = async()=>{
-    
-    if(skills.value[0]){
-      showLoader.value = true
-      const formSaved = await updateUserDetails('skills',skills.value)
-      if(formSaved) emit('next');return showLoader.value = false
-    }
-    return emit('next');
-  }
+    submit();
+  };
 
   // const props = defineProps<{
   //     color: string;

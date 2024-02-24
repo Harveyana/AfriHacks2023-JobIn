@@ -14,11 +14,11 @@
             Complete your information
           </p>
 
-          <div class="w-[95%] flex flex-col items-start justify-center">
-              <span class="text-sm text-[#555a5c] mb-2 ml-2">Upload means</span>
+          <!-- <div class="w-[95%] flex flex-col items-start justify-center">
+              <span class="text-sm text-[#555a5c] mb-2 ml-2">Upload means</span> -->
               <!-- Select Means of Upload -->
-              <BaseSelect :options="UploadMeansArray" placeholder="Choose a means of uploading your resume" @optionChanged="(value:string)=>{changeOption(value)}" />
-          </div>
+              <!-- <BaseSelect :options="UploadMeansArray" placeholder="Choose a means of uploading your resume" @optionChanged="(value:string)=>{changeOption(value)}" />
+          </div> -->
 
         </div>
 
@@ -75,7 +75,7 @@
 
   const openConfirmedDialogue = state.showConfirmDialogue
 
-  const UploadMeans = ref('')
+  const UploadMeans = ref('Manually enter your details')
 
   const UploadMeansArray = ['Upload from device','Manually enter your details']
 

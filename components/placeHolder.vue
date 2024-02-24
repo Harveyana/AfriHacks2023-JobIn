@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-[#12171d] rounded-3xl flex flex-col items-center justify-center space-y-4 lg:space-y-8 py-20">
+    <div class="w-full bg-[#12171d] rounded-3xl flex flex-col items-center justify-center space-y-4 lg:space-y-8 py-12">
           <div class="w-[40%]">
             <img
               :src=steps[props.step].img
