@@ -42,23 +42,28 @@
     
 
       <!--  Dialogue 2 -->
-      <BaseDialog :visible="state.showLoader.value">
-        <div class="w-full h-full rounded-3xl flex flex-col items-center justify-center bg-[#0b1015] py-10 px-8 space-y-5">
-          <Knob :size="150" valueColor="MediumTurquoise" textColor="white" v-model="state.ProgressNumber.value" :valueTemplate="`${state.ProgressNumber.value}%`" rangeColor="SlateGray" />
+      <BaseDialog :visible="state.showLoader.value" class="bg-white">
+        <div class="w-full h-full rounded-3xl flex flex-row items-center justify-center bg-white py-4 px-4 gap-x-2 gap-y-5">
+          
+          <img src="~/assets/img/logo/JobRoutesDark.svg" class=" sm:mb-2 animate-pulse sm:w-24"/>
 
-          <h1 class="blackCabinet text-xl capitalize text-white font-bold">
-            {{state.Progress.value}} ...
-          </h1>
-
-          <!-- <p class="text-sm text-[#555a5c] text-center flex flex-row items-center justify-center">
-            Upload resume or enter details manually
-          </p> -->
-
-          <BaseButton @click="state.showLoader.value = false;" class="bg-white">
-            <span class="text-[16px] text-black hover:text-gray-200 text-center">Cancel</span>
-          </BaseButton>
+          <ProgressRoot
+            v-model="state.ProgressNumber.value"
+            class="relative flex items-center justify-center gap-6 overflow-hidden animate-pulse bg-white rounded-full w-full sm:w-[400px] px-4  h-12 sm:h-fit"
+            style="transform: translateZ(0)"
+          >
+            
+            <ProgressIndicator
+              class="bg-black rounded-full w-full h-8 transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
+              :style="`transform: translateX(-${100 - state.ProgressNumber.value}%)`"
+            />
+            <svg @click="state.showLoader.value = false;" class="w-6 h-fit rounded-full cursor-pointer hover:bg-gray-300 fill-black dark:stroke-white dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 2048 2048"><path fill="currentColor" d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90z"/></svg>
+          </ProgressRoot>
 
         </div>
+        <p class="mx-20 w-full blackCabinet text-sm capitalize text-black dark:text-white font-bold">
+            {{state.Progress.value}} ...
+        </p>
       </BaseDialog>
 
 

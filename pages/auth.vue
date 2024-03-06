@@ -2,12 +2,34 @@
   <div class="w-full h-full overflow-y-scroll bg-[#0b1015] no-scrollbar">
 
     <!-- Container -->
-    <section class="w-full h-full flex flex-row items-center justify-center ">
-      
+    <section class="w-full h-full grid grid-cols-12">
+       
+      <div class="col-span-12 flex flex-col bg-pattern lg:col-span-6 gap-y-8 px-8 sm:px-16 py-8">
+
+        <img src="~/assets/img/logo/logoWithWord.svg" class=" w-[50%] sm:w-[30%]"/>
+
+        <div class="w-full sm:w-[80%] flex flex-col items-start justify-start space-y-5 ">
+
+          <h1 class="blackCabinet  text-2xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
+            Get Tailored Applications for Your Career Journey
+          </h1>
+          <p class="text-sm text-white flex flex-row">
+            Craft tailored applications for global dream roles with seamless access to limitless career opportunities.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="col-span-12 lg:col-span-6 h-full flex flex-row items-center justify-center lg:justify-start px-6 sm:px-16 ">
+
         <Login v-if="tab =='login'" />
         <!-- sign Up -->
         <SignUp v-if="tab =='signUp'" @show-verify="(email)=>{showVerify(email)}"/>
         <!-- Login -->
+        
+
+      </div>
+      
         
         
     </section>
@@ -96,6 +118,14 @@
 .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+.bg-pattern {
+  background: url('../assets/img/authbg.svg');
+  background-repeat: no-repeat;
+  /* background-size: auto; */
+  background-size: cover;
+  background-position: center center;
 }
 
 </style>

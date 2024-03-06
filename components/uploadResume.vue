@@ -1,4 +1,5 @@
 <template>
+  <div class="w-full flex flex-col items-center justify-center">
     <div v-if="!uploaded" ref="dropZoneRef" :class="{ 'border border-white': isOverDropZone }" class="w-full sm:w-[40%] lg:w-[33%] mx-5 border border-[#23282d] hover:border-white rounded-3xl flex flex-col items-center justify-center bg-transparent py-5 px-6 space-y-4">
             <img src="~/assets/img/upload.svg" class="w-12 bg-[#0b1015] cursor-pointer p-1 rounded-[50px] mx-2 lg:w-20" />
 
@@ -12,7 +13,7 @@
 
     </div>
     <!-- sm:w-[40%] lg:w-[33%] -->
-    <div v-else class="w-full mx-10 py-3 flex flex-row rounded-3xl justify-start items-center border border-[#23282d]">
+    <div v-else class="w-full sm:w-[40%] lg:w-[33%] mx-10 py-3 flex flex-row rounded-3xl justify-start items-center border border-[#23282d]">
       <img src="~/assets/img/doc.svg" class="w-12 bg-[#0b1015] cursor-pointer p-1 rounded-[50px] mx-2 lg:w-14" />
       <div class="flex flex-col justify-center items-start">
         <h1 class="blackCabinet text-sm lg:text-lg text-center text-white font-bold">
@@ -25,9 +26,16 @@
       </div>
       <svg @click="reset" class="ml-auto mr-4 mb-auto mt-2 hover:stroke-red-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 12 12"><path fill="white" d="M5 3h2a1 1 0 0 0-2 0M4 3a2 2 0 1 1 4 0h2.5a.5.5 0 0 1 0 1h-.441l-.443 5.17A2 2 0 0 1 7.623 11H4.377a2 2 0 0 1-1.993-1.83L1.941 4H1.5a.5.5 0 0 1 0-1zm3.5 3a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0zM5 5.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5M3.38 9.085a1 1 0 0 0 .997.915h3.246a1 1 0 0 0 .996-.915L9.055 4h-6.11z"/></svg>
     </div>
+
+    <ProgressSpinner v-if="showSpinner" class="" style="width: 50px; height: 50px" strokeWidth="8" fill="#ffff"
+      animationDuration=".5s" aria-label="Custom ProgressSpinner" 
+    />
+  </div>
+    
   </template>
 
   <script setup lang="ts">
+  import axios from 'axios'
   
     // import {extractPdf} from '../composables/useDoc'
     
@@ -39,14 +47,56 @@
       multiple: false 
     })
 
+    const {updateUserDetails,updateUserKey} = useFireBase()
+
+    const state = useGlobalState()
+
+    const openConfirmedDialogue = state.showConfirmDialogue 
+
+    const showSpinner = ref(false)
     const fileName = ref('')
     const uploaded = ref(false)
+
+    const parse = async(file:File)=>{
+      console.log(file.name)
+      showSpinner.value = true
+      const formData = new FormData(); // Create FormData object
+      formData.append('file', file); // Append the selected file to the FormData
+
+      try {
+        const response = await axios.post('https://api.apyhub.com/extract/text/pdf-file', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // Set Content-Type header to multipart/form-data
+            'apy-token': 'APY0tizFnmlWDDrFOrWBZ3RhiPJ7HT5rmNe9m9vOBeT9fBVkYXHNmIS4kJ3luu7cURMvVBE',
+          },
+        });
+
+        // console.log('File uploaded successfully:', response.data);
+        console.log(response.status)
+        if(response.status == 200 ) {
+          const formSaved = await updateUserKey('userDetails',response.data)
+          const userSetupCompleted = await updateUserKey('isSetupCompleted',true)
+          if(formSaved && userSetupCompleted)openConfirmedDialogue.value=true;showSpinner.value = false
+        }
+        
+        // Handle response from backend as needed
+        
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        showSpinner.value = false
+        // Handle error
+      }
+    }
+
      
 
     onChange(async(files: File[]) => {
       uploaded.value = true
       console.log(files)
       fileName.value = files[0].name
+
+      parse(files[0]);
+
 
         // Set loading to true before extracting text from the PDF
         // this.loading = true;
@@ -68,6 +118,7 @@
       console.log(files)
       fileName.value = files[0].name
       uploaded.value = true
+      parse(files[0]);
     }
 
     const { isOverDropZone } = useDropZone(dropZoneRef, {

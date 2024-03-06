@@ -1,7 +1,7 @@
 <template>
 
     <div
-        class="col-span-12 overflow-scroll no-scrollbar flex-none  pt-[20%] sm:pt-0 sm:mt-2 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center"
+        class="col-span-12 overflow-scroll no-scrollbar pt-[20%] sm:pt-0 sm:mt-2 rounded-2xl outline-none bg-[#f6f6f6] dark:bg-[#0b1015] flex items-center justify-center"
       :value="props.value"
       >
 
@@ -48,7 +48,7 @@
           </div>
 
           <!-- Occupation -->
-          <div class="w-full flex flex-col items-start justify-center ">
+          <!-- <div class="w-full flex flex-col items-start justify-center ">
               <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">What do you do</span>
               <input
                 type="text"
@@ -56,7 +56,7 @@
                 class="cabinet w-full border border-gray-200 dark:border-[#23282d] dark:text-gray-400 text-sm h-full py-3 lg:py-4 px-4 rounded-3xl bg-white dark:bg-[#12171d]"
                 placeholder="University of Abuja"
               />
-          </div>
+          </div> -->
 
           
           <!-- Occupation -->

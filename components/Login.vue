@@ -1,7 +1,7 @@
 <template>
-      <div class="w-full sm:w-[60%] lg:w-[40%] space-y-8 sm:space-y-4">
+      <div class="w-full sm:w-[60%] lg:w-[75%] space-y-8 sm:space-y-4">
 
-        <div class="w-full flex flex-col items-center justify-center space-y-5">
+        <div class="w-full flex flex-col items-start justify-center space-y-4">
           <h1 v-if="showLoader == false" class="blackCabinet text-5xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
             Login
           </h1>
@@ -10,10 +10,10 @@
           />
         </div>
 
-        <div class="w-full flex flex-col items-center justify-center space-y-8 px-12">
+        <div class="w-full lg:w-[80%] flex flex-col items-start justify-center space-y-4">
           <button @click="googleSignIn()" class="w-full flex flex-row hover:bg-gray-600 items-center justify-center border-2  border-white rounded-3xl p-1.5">
             <img src="~/assets/img/googleLogo.svg" class="w-5 cursor-pointer mx-2" />
-            <span class="text-[16px] text-white text-center">Continue with Google</span>
+            <span class="text-[13px] text-white text-center">Continue with Google</span>
           </button>
 
           <div class="w-full flex flex-row items-center justify-center">
@@ -22,26 +22,26 @@
             <div class="border-[#555a5c] border w-[34%]"></div>
           </div>
 
-          <div class="w-full flex flex-col items-start justify-start space-y-6">
+          <div class="w-full flex flex-col items-start justify-start space-y-2">
             <span class="text-sm text-[#555a5c] text-left ">Continue with email address</span>
 
-            <div class="w-full flex flex-col items-start justify-start space-y-3">
+            <div class="w-full flex flex-col items-start justify-start space-y-1">
               <span class="text-sm text-[#555a5c] text-left ">Email address</span>
               <input
                 type="text"
                 v-model="inputs.email"
-                class="w-full border-[#555a5c] border text-gray-400 text-sm py-3 px-4 bg-[#12171d] rounded-3xl"
+                class="w-full border-[#555a5c] border text-gray-400 text-[13px] py-2 px-4 bg-[#12171d] rounded-3xl"
                 placeholder="Enter email address..."
               />
             </div>
             
-            <div class="w-full flex flex-col items-start justify-start space-y-3">
+            <div class="w-full flex flex-col items-start justify-start space-y-1">
               <span class="text-sm text-[#555a5c] text-left ">Password</span>
               <div class="w-full border-[#555a5c] border bg-[#12171d] rounded-3xl flex items-center justify-center">
                 <input
                   v-model="inputs.password"
                   :type="visible ? 'text' : 'password'"
-                  class="w-full text-gray-400 text-sm py-3 px-4 bg-[#12171d] rounded-3xl"
+                  class="w-full text-gray-400 text-[13px] py-2 px-4 bg-[#12171d] rounded-3xl"
                   placeholder="Enter password"
                 />
                 <svg @click="visible = !visible" class="cursor-pointer mx-4" width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
 
 
             <div class="w-full flex flex-col items-start ">
-              <button :disabled="!isValidForm" @click.prevent="submitForm" :class="{ 'bg-gray-400': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl p-3">
+              <button :disabled="!isValidForm" @click.prevent="submitForm" :class="{ 'bg-gray-400': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl py-2">
                 <span class="text-[16px] text-black hover:text-gray-200 text-center">Sign In</span>
               </button>
               <span @click="$router.push('/auth?tab=signUp')" class="text-lg text-white hover:text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1 ml-4">Sign up <svg class="mx-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="none" stroke="white" d="m13.5 7.5l-4-4m4 4l-4 4m4-4H1"/></svg></span>

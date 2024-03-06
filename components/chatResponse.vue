@@ -46,8 +46,8 @@
                 <BaseToolTip text="Edit Document">
                   <svg class='hidden sm:block cursor-pointer w-4 sm:w-7 stroke-gray-500 hover-stroke-black dark:stroke-[#3e4449] dark:hover:stroke-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16.293 2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-13 13A1 1 0 0 1 8 21H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 .293-.707l10-10l3-3zM14 7.414l-9 9V19h2.586l9-9L14 7.414zm4 1.172L19.586 7L17 4.414L15.414 6L18 8.586z"/></svg>
                 </BaseToolTip>
-                <BaseToolTip text="Copy to clipboard">
-                  <svg class='hidden sm:block cursor-pointer w-4 sm:w-7 stroke-gray-500 hover-stroke-black dark:stroke-[#3e4449] dark:hover:stroke-white mx-2' xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9V6.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 3 11.08 3 12.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C21 4.52 21 5.08 21 6.2v5.6c0 1.12 0 1.68-.218 2.108a2.002 2.002 0 0 1-.874.874C19.48 15 18.92 15 17.803 15H15M9 9H6.2c-1.12 0-1.68 0-2.108.218a1.999 1.999 0 0 0-.874.874C3 10.52 3 11.08 3 12.2v5.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h5.607c1.117 0 1.676 0 2.104-.218a2 2 0 0 0 .874-.874c.218-.428.218-.987.218-2.105V15M9 9h2.8c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874c.218.427.218.987.218 2.105V15"/></g></svg>
+                <BaseToolTip  text="Copy to clipboard">
+                  <svg @click="copy()" class='hidden sm:block cursor-pointer w-4 sm:w-7 stroke-gray-500 hover-stroke-black dark:stroke-[#3e4449] dark:hover:stroke-white mx-2' xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9V6.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 3 11.08 3 12.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C21 4.52 21 5.08 21 6.2v5.6c0 1.12 0 1.68-.218 2.108a2.002 2.002 0 0 1-.874.874C19.48 15 18.92 15 17.803 15H15M9 9H6.2c-1.12 0-1.68 0-2.108.218a1.999 1.999 0 0 0-.874.874C3 10.52 3 11.08 3 12.2v5.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h5.607c1.117 0 1.676 0 2.104-.218a2 2 0 0 0 .874-.874c.218-.428.218-.987.218-2.105V15M9 9h2.8c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874c.218.427.218.987.218 2.105V15"/></g></svg>
                 </BaseToolTip>
                 <BaseToolTip text="Download Document">
                   <svg @click="$emit('openDownload')" class='hidden sm:block cursor-pointer w-4 sm:w-7 stroke-gray-500 hover-stroke-black dark:stroke-[#3e4449] dark:hover:stroke-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2"/></g></svg>
@@ -55,17 +55,36 @@
               </div>
               
             </div>
-
+            <BaseToast :model="toast.show" :success="toast.success" :title="toast.title" :description="toast.description" @close="toast.show = false"/>
   </template>
   <script setup lang="ts">
   const emit = defineEmits(['seeMore','seeLess','openDownload'])
   const state = useGlobalState()
+
+  const toast = reactive({
+    show:false,
+    title:'',
+    description:'',
+    success:true
+  })
+
+  const initToast=(success:boolean,title:string,description:string)=>{
+    toast.title = title
+    toast.description = description
+    toast.success = success
+    toast.show = true
+  }
 
   // const data = ref('Job Title: Product Designer')
   const props = defineProps<{
     // data: string;
     expanse: number;
   }>()
+    
+  const copy = ()=>{
+    navigator.clipboard.writeText(state.chatResponse.value);
+    initToast(true,'Copy to Clipboard','Successfull')
+  }
 
   const expanded = ref(8)
   

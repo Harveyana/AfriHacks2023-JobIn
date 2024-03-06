@@ -90,7 +90,7 @@ export const useFireBase = () => {
 
       await updateDoc(userRef, {
         [key]: data,
-        displayName:data.name
+        // displayName:data.name
       });
 
       return true

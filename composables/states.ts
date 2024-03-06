@@ -17,7 +17,7 @@ import { useFireBase } from "./useFireBase"
 
 
      const showLoader = ref(false)
-     const ProgressNumber = ref(60)
+     const ProgressNumber = ref(90)
      const Progress = ref('fetching documents')
 
      const openSetupDialog = ref(false)

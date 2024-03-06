@@ -1,9 +1,10 @@
 <template>
-  <div class="w-full no-scrollbar overflow-scroll">
+  <div class="w-full h-[100vh] lg:h-[98%] no-scrollbar overflow-scroll">
     
     <!-- <Toolbar /> -->
 
     <!-- Container -->
+      
         <section class="relative max-h-[85%] overflow-y-scroll no-scrollbar bg-transparent w-screen sm:w-full grid grid-cols-12 px-2">
             
           <TabsRoot v-model:modelValue="tab" class="absolute z-10 sticky top-0 hidden sm:col-span-12 sm:grid col-span-10 h-fit" default-value="tab1">
@@ -37,19 +38,32 @@
                   
           </TabsRoot>
 
-            <!-- TAB 1 -->
-          <MyProfileTab v-if="tab =='tab1'" value="tab1" @nextTab="tab='tab2'" />
+        <ScrollAreaRoot
+         class="col-span-12 h-full lg:h-[80%]"
+          >
+            <ScrollAreaViewport class=" h-fit overflow-scroll">
 
-            <!-- TAB 2 -->
-          <AccountSettingTab v-if="tab=='tab2'" value="tab2" @previousTab="tab='tab1'" @nextTab="tab='tab3'" />
+        
+                  <!-- TAB 1 -->
+              <MyProfileTab v-if="tab =='tab1'" value="tab1" @nextTab="tab='tab2'" />
 
-            <!-- TAB 3 -->
-          <NotificationsTab v-if="tab=='tab3'" value="tab3" @previousTab="tab='tab2'" />
+                <!-- TAB 2 -->
+              <AccountSettingTab v-if="tab=='tab2'" value="tab2" @previousTab="tab='tab1'" @nextTab="tab='tab3'" />
 
-          <!-- TAB 4 -->
-          <SubscriptionsTab v-if="tab=='tab4'" value="tab4" @previousTab="tab='tab3'" />
-    
-        </section>
+                <!-- TAB 3 -->
+              <NotificationsTab v-if="tab=='tab3'" value="tab3" @previousTab="tab='tab2'" />
+
+              <!-- TAB 4 -->
+              <SubscriptionsTab v-if="tab=='tab4'" value="tab4" @previousTab="tab='tab3'" />
+
+            </ScrollAreaViewport>
+
+            
+        </ScrollAreaRoot>       
+            
+      </section>
+
+         
 
   </div>
 

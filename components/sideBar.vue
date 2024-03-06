@@ -13,7 +13,7 @@
                     <svg class="w-6 mx-1 sm:mx-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path class="dark:stroke-white dark:group-hover:stroke-black" d="M9.16668 4.16667H5.00001C4.07954 4.16667 3.33334 4.91286 3.33334 5.83334V15C3.33334 15.9205 4.07954 16.6667 5.00001 16.6667H14.1667C15.0872 16.6667 15.8333 15.9205 15.8333 15V10.8333M14.6548 2.98816C15.3057 2.33728 16.361 2.33728 17.0119 2.98816C17.6627 3.63903 17.6627 4.6943 17.0119 5.34518L9.85703 12.5H7.50001L7.50001 10.143L14.6548 2.98816Z" stroke="#0B1015" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span v-if="state.user.value.userDetails" class="">Edit Resume</span>
+                    <span v-if="userdetail" class="">Edit Resume</span>
                     <span v-else class="">Add Resume</span>
                 </button>
             </div>
@@ -134,9 +134,11 @@
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const state = useGlobalState()
-const IsActive = (targetRoute:string) => {
-  return computed(() => route.path === targetRoute);
-};
+// const IsActive = (targetRoute:string) => {
+//   return computed(() => route.path === targetRoute);
+// };
+
+const userdetail = computed(() => state.user.value?.userDetails)
 
 // Pass the necessary arguments to create the computed ref
 // const visible = ref(false);
