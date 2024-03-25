@@ -2,40 +2,56 @@
       <div class="w-full sm:w-[60%] lg:w-[75%] space-y-8 sm:space-y-4">
 
         <div class="w-full flex flex-col items-start justify-center space-y-4">
-          <h1 v-if="showLoader == false" class="blackCabinet text-4xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
-            Login
+          <h1  data-aos="fade-right" data-aos-once="true">
+             <span v-if="!tab" class="blackCabinet text-4xl text-white font-bold" > Recover Account</span>
+             <span v-else class="blackCabinet text-4xl text-white font-bold" > Reset Password</span>
           </h1>
-          <ProgressSpinner v-if="showLoader" class="" style="width: 80px; height: 80px" strokeWidth="8" fill="#ffff"
+          <!-- <ProgressSpinner v-if="showLoader" class="" style="width: 80px; height: 80px" strokeWidth="8" fill="#ffff"
             animationDuration=".5s" aria-label="Custom ProgressSpinner" 
-          />
+          /> -->
         </div>
 
         <div class="w-full lg:w-[80%] flex flex-col items-start justify-center space-y-4">
-          <button @click="googleSignIn()" class="w-full flex flex-row hover:bg-gray-600 items-center justify-center border-2  border-white rounded-3xl p-1.5">
+          <!-- <button @click="googleSignIn()" class="w-full flex flex-row hover:bg-gray-600 items-center justify-center border-2  border-white rounded-3xl p-1.5">
             <img src="~/assets/img/googleLogo.svg" class="w-5 cursor-pointer mx-2" />
             <span class="text-[13px] text-white text-center">Continue with Google</span>
-          </button>
+          </button> -->
 
-          <div class="w-full flex flex-row items-center justify-center">
+          <!-- <div class="w-full flex flex-row items-center justify-center">
             <div class="border-[#555a5c] border w-[34%]"></div>
             <span class="text-xl text-[#555a5c] text-center mx-12">Or</span>
             <div class="border-[#555a5c] border w-[34%]"></div>
-          </div>
+          </div> --> 
 
-          <div class="w-full flex flex-col items-start justify-start space-y-4">
-            <span class="text-sm text-[#555a5c] text-left ">Continue with email address</span>
+          <div v-if="!tab" class="w-full flex flex-col items-start justify-start space-y-4">
+            <span class="text-sm text-[#555a5c] text-left ">Verification Code will be sent to your email</span>
 
             <div class="w-full flex flex-col items-start justify-start space-y-1">
               <span class="text-sm text-[#555a5c] text-left ">Email address</span>
               <input
                 type="text"
-                v-model="inputs.email"
+                v-model="email"
                 class="w-full border-[#555a5c] border text-gray-400 text-[13px] py-2 px-4 bg-[#12171d] rounded-3xl"
                 placeholder="Enter email address..."
               />
             </div>
+
+            <!-- <PinInputRoot
+                          id="pin-input"
+                          v-model="pinValue"
+                          placeholder="○"
+                          class="flex gap-2 items-center mt-1"
+                          @complete="handleComplete"
+                        >
+              <PinInputInput
+                v-for="(id, index) in 5"
+                  :key="id"
+                  :index="index"
+                  class="w-12 h-12 bg-white rounded text-center shadow-lg text-black placeholder:text-gray-200 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[#DAA520]"
+              />
+            </PinInputRoot> -->
             
-            <div class="w-full flex flex-col items-start justify-start space-y-1">
+            <!-- <div class="w-full flex flex-col items-start justify-start space-y-1">
               <span class="text-sm text-[#555a5c] text-left ">Password</span>
               <div class="w-full border-[#555a5c] border bg-[#12171d] rounded-3xl flex items-center justify-center">
                 <input
@@ -52,18 +68,47 @@
 
               <span @click="$router.push('/auth?tab=forgotPassWord')" class="text-sm text-white text-left flex flex-row items-center justify-center cursor-pointer mt-1">Forgot password?</span>
 
-            </div>
+            </div> -->
 
 
             <!-- <div class="w-full flex flex-col items-start "> -->
-              <button :disabled="!isValidForm" @click.prevent="submitForm" :class="{ 'bg-gray-400': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl py-2">
-                <span class="text-[14px] text-black hover:text-gray-200 text-center">Login</span>
+              <button :disabled="!isValidForm || showLoader" @click.prevent="recoverAccount()" :class="{ 'bg-gray-400': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl py-2">
+                <ProgressSpinner v-if="showLoader" class="" style="width: 25px; height: 25px" strokeWidth="8" fill="#ffff"
+                  animationDuration=".5s" aria-label="Custom ProgressSpinner" 
+                />
+                <span v-else class="text-[14px] text-black hover:text-gray-200 text-center">Send Code</span>
               </button>
               
             <!-- </div> -->
-            <span  class="text-sm text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1">Don't have an account? <span @click="$router.push('/auth?tab=signUp')" class="text-white hover:text-[#555a5c] ml-1">Sign Up</span></span>
+            <span  class="text-sm text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1">go back? <span @click="$router.push('/auth?tab=signUp')" class="text-white hover:text-[#555a5c] ml-1">Cancel</span></span>
             
           </div>
+
+
+
+          <div v-else class="w-full flex flex-col items-start justify-start space-y-4">
+            <span class="text-sm text-[#555a5c] text-left ">Enter new password</span>
+
+            <div class="w-full flex flex-col items-start justify-start">
+              <input
+                type="text"
+                v-model="password"
+                class="w-full border-[#555a5c] border text-gray-400 text-[13px] py-2 px-4 bg-[#12171d] rounded-3xl"
+                placeholder="Enter password"
+              />
+            </div>
+
+            <button :disabled="password ==''|| showLoader" @click.prevent="Reset()" :class="{ 'bg-gray-400': password !=='' }" class="w-full bg-[#555a5c] flex flex-row items-center justify-center rounded-3xl py-2">
+              <ProgressSpinner v-if="showLoader" class="" style="width: 25px; height: 25px" strokeWidth="8" fill="#ffff"
+                animationDuration=".5s" aria-label="Custom ProgressSpinner" 
+              />
+              <span v-else class="text-[14px] text-black hover:text-gray-200 text-center">Submit</span>
+            </button>
+
+            <span  class="text-sm text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1">go back? <span @click="$router.push('/auth?tab=login')" class="text-white hover:text-[#555a5c] ml-1">Cancel</span></span>
+
+          </div>
+
         </div>
 
       </div>
@@ -72,19 +117,15 @@
 
   </template>
   <script setup lang="ts">
-  // import { useForm } from 'vee-validate';
-  //  import { toTypedSchema } from '@vee-validate/yup';
-  //  import * as yup from 'yup';
-  //  import { useToast } from "primevue/usetoast";
-   import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
-   import { getAuth, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+  // const pinValue = ref<string[]>([])
 
-  // const toast = useToast();
+  // const handleComplete = (e: string[]) => alert(e.join(''))
 
   const showLoader = ref(false)
-  const {objectToArray} = useConverters()
-  const {queryUser} = useFireBase()
-  const visible = ref(false)
+  const {AccountRecovery,ResetPassword} = useRequests()
+  // const {queryUser} = useFireBase()
+  // const visible = ref(false)
+  
 
   const toast = reactive({
     show:false,
@@ -100,14 +141,16 @@
     toast.show = true
   }
 
-  const route = useRouter()
-
-  const inputs = reactive({
-    email:'',
-    password:''
-  })
+  const route = useRoute()
+  const router = useRouter()
 
 
+  // const inputs = reactive({
+  //   email:'',
+  //   password:''
+  // })
+  const password = ref('')
+  const email = ref('')
 
   const emit = defineEmits(['openSignup','openLogin'])  // Declare Events
 
@@ -121,78 +164,63 @@
       return emailPattern.test(email);
   }
 
- const isValidForm = computed(() =>{return isValidEmail(inputs.email) && inputs.password !== ''})
+ const isValidForm = computed(() =>{return isValidEmail(email.value)})
+
+ const tab = ref(route.query.recovery || '');
+
+  // const visible = ref(false)
 
 
-  async function onSuccess(email:string,password:string) {
+  watch(tab, async (newtab, oldtab) => {
+    router.push({
+          path: '/auth',
+          query: { tab: newtab },
+    })
+  })
+
+
+  async function recoverAccount() {
         showLoader.value = true
-        signInWithEmailAndPassword(FIREBASE_AUTH,email,password)
-        .then((userCredential) => {
           // Signed in 
-          const user = userCredential.user;
-          showLoader.value = false
-          // toast.add({ severity: 'success', summary: 'Operation Successful', detail: 'Login Successfull', life: 3000, group:'success' });
-          initToast(true,'Successful','Sign in was successful')
-          inputs.email = '';
-          inputs.password = '';
+          const response = await AccountRecovery(email.value);
+          if (response){
+            showLoader.value = false
+            initToast(true,'Successful','Recovery Email has been sent')
+            email.value = '';
+            password.value = '';
+          }else{
+            initToast(true,'Failed','Account does not exist')
 
-          route.push('/')
+          }
+          
+
+          // route.push('/')
           // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          showLoader.value = false
-          // toast.add({ severity: 'error', summary: 'operation not successful', detail:'Login Failed', life: 3000, group:'fail' });
-          initToast(false,'Error','An error occured please try again')
-        });
-        
-
   }
 
-  const submitForm =()=> {
+  async function Reset() {
+        showLoader.value = true
+          // Signed in 
+          const response = await ResetPassword(password.value,tab.value);
+          if (response){
+            showLoader.value = false
+            initToast(true,'Password Updated','Password to your account changed ')
+            email.value = '';
+            password.value = '';
+          }else{
+            initToast(true,'Failed','Operation was not successful')
 
-      if (!isValidEmail(inputs.email)) {
-        // alert('Please enter a valid email address.');
-        initToast(false,'Email Required','Please enter a valid email address')
-        return;
-      }
+          }
+          
 
-      if (inputs.password == '') {
-        // alert('Please enter password.');
-        initToast(false,'Password Required','Please enter account password')
-        return;
-      }
-      
-      onSuccess(inputs.email,inputs.password)
-
-      // Form submission logic
-      // console.log('Form submitted successfully!');
-      
+          // route.push('/')
+          // ...
   }
 
-  // Google Sign in
 
-  const googleSignIn = async()=>{
-    showLoader.value = true
-    const provider = new GoogleAuthProvider();
-    const response = await signInWithPopup(FIREBASE_AUTH, provider);
-    const user = response.user
-    // showLoader.value = false
-    // route.replace('/')
-    // console.log(response.user)
-    const userExists = await queryUser()
 
-    if(userExists) { // if user already exists with same email we route forward
-      showLoader.value = false
-      initToast(true,'Successful','Signing in....')
-      return route.push('/');
-    }
 
-    showLoader.value = false
-    route.push('/auth?tab=signUp')
-
-  }
+  
 
 
   </script>

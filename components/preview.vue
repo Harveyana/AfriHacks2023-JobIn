@@ -47,8 +47,8 @@
                 class="h-[55vh] border border-black rounded overflow-scroll bg-white"
               >
 
-                  <div ref="pdfSection" class="w-[60vw] h-full ">
-                    <div class="w-full">
+                  <div ref="pdfSection" class="w-fit h-full ">
+                    <div id="element-to-convert" class="w-fit">
                       <ContentRender :markdown-string="state.chatResponse.value" />
                     </div>
                   </div>
@@ -60,13 +60,13 @@
               <div v-if="tab == 'tab1'" class=" w-full flex gap-x-12">
 
                       <div class="w-[30%]">
-                        <BaseButton  @click="$emit('closeDownloadDialog')" class="bg-black">
+                        <BaseButton  @click="" class="bg-black">
                           <span class="text-[16px] text-white hover:text-gray-200 text-center">Cancel</span>
                         </BaseButton>
                       </div>
                       
 
-                      <BaseButton  @click="exportToPDF('my-pdf-file.pdf', pdfSection as HTMLElement,undefined,{html2canvas: {scale: 0.7, useCORS: true},margin:16,autoPaging:'text'})" class="bg-black">
+                      <BaseButton @click="exportToPDF" class="bg-black">
                         <span class="text-[16px] text-white hover:text-gray-200 text-center">Download</span>
                       </BaseButton>
               </div>
@@ -80,19 +80,44 @@
 
   <script setup lang="ts">
 
-  import { exportToPDF } from '#imports'
+  import html2pdf from "html2pdf.js";
 
-  const pdfSection = ref<HTMLElement | null>(null)
+  // import { exportToPDF } from '#imports'
+
+  // const pdfSection = ref<HTMLElement | null>(null)
+
+  const exportToPDF = ()=> {
+      html2pdf(document.getElementById("element-to-convert"), {
+				margin: 1,
+  			filename: "i-was-html.pdf",
+			});
+    }
+
+  const {parse} = useRequests()
 
   const state = useGlobalState()
+
+  // const parsedData = ref()
 
   const tab = ref('tab1')
 
   const user = state.user
 
+  // const parseDoc = async()=>{
+  //   // console.log(state.chatResponse.value)
+  //   const response = await parse(state.chatResponse.value);
+  //   console.log(response)
+  //   parsedData.value = response
+  // }
+
 
   const props = defineProps<{
     openDownloadDialog: boolean;
   }>()
+
+  // onMounted(async()=>{
+  //   if(state.chatResponse.value)parseDoc()
+    
+  // })
   
   </script>

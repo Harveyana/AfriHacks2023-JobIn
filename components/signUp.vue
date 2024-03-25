@@ -1,5 +1,5 @@
 <template>
-      <div class="w-full h-fit sm:w-[60%] lg:w-[75%] space-y-8 my-8 sm:space-y-4 overflow-y-scroll no-scrollbar pt-20 lg:pt-0">
+      <div class="w-full h-fit sm:w-[60%] lg:w-[75%] space-y-8 my-8 sm:space-y-4 overflow-y-scroll no-scrollbar">
 
         <div class="w-full flex flex-col items-start justify-start space-y-5 ">
           <h1 v-if="showLoader == false" class="blackCabinet text-4xl text-white font-bold" data-aos="fade-right" data-aos-once="true">
@@ -57,7 +57,7 @@
                   v-model="inputs.password"
                   :type="visible? 'text': 'password'"
                   class="w-full text-gray-400 text-[13px] py-2 px-4 bg-[#12171d] rounded-3xl"
-                  placeholder="Enter password..."
+                  placeholder="Choose a strong password"
                 />
                 <svg @click="visible = !visible" class="cursor-pointer mx-4" width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8749 7.02279C17.1969 6.76109 17.2414 6.29322 16.9742 5.97777C16.707 5.66233 16.2293 5.61876 15.9072 5.88047L14.3822 7.11952C11.842 9.18341 8.17182 9.18846 5.6441 7.13773L4.13399 5.91259C3.8117 5.65111 3.334 5.69502 3.06702 6.01066C2.80003 6.32629 2.84487 6.79413 3.16716 7.05561L3.46065 7.29372L2.60023 8.13638C2.3043 8.4262 2.29935 8.90105 2.58917 9.19698C2.87899 9.49292 3.35384 9.49787 3.64977 9.20805L4.63315 8.24496L4.67727 8.28075C5.17381 8.6836 5.70622 9.02148 6.263 9.29445L5.23531 10.9719C5.01893 11.3251 5.12984 11.7868 5.48304 12.0032C5.83623 12.2196 6.29797 12.1087 6.51436 11.7555L7.68865 9.83876C8.20028 9.98254 8.7231 10.0774 9.2496 10.1234V12.7104C9.2496 13.1246 9.58539 13.4604 9.9996 13.4604C10.4138 13.4604 10.7496 13.1246 10.7496 12.7104V10.1226C11.4085 10.0643 12.0619 9.92966 12.6953 9.71864L13.9431 11.7555C14.1595 12.1087 14.6213 12.2196 14.9745 12.0032C15.3277 11.7868 15.4386 11.3251 15.2222 10.9719L14.0834 9.11317C14.5248 8.8714 14.9489 8.58762 15.3499 8.26185L15.3681 8.24701L16.3494 9.20805C16.6454 9.49787 17.1202 9.49292 17.41 9.19698C17.6999 8.90105 17.6949 8.4262 17.399 8.13638L16.5398 7.29499L16.8749 7.02279Z" fill="#9A9A9A"/>
@@ -67,13 +67,14 @@
               
             </div>
 
-            <div class="w-full flex flex-col items-start ">
-              <button :disabled="!isValidForm" @click.prevent="submitForm" :class="{ 'bg-gray-400': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl py-2">
-                <span class="text-[16px] text-black hover:text-gray-200 text-center">Create Account</span>
+            <!-- <div class="w-full flex flex-col items-start "> -->
+              <button :disabled="!isValidForm" @click.prevent="submitForm" :class="{ 'bg-white': isValidForm }" class="w-full bg-[#555a5c] hover:bg-gray-500 flex flex-row items-center justify-center rounded-3xl py-2">
+                <span class="text-[14px] text-black hover:text-gray-200 text-center">Create Account</span>
               </button>
 
-              <span @click="$router.push('/auth?tab=login')" class="text-lg hover:text-[#555a5c] text-white text-left flex flex-row items-center justify-center cursor-pointer mt-1 ml-6">Login <svg class="mx-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path fill="none" stroke="white" d="m13.5 7.5l-4-4m4 4l-4 4m4-4H1"/></svg></span>
-            </div>
+              <!-- <span  class="text-sm text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1">Already have an account? <span @click="$router.push('/auth?tab=login')" class="text-white hover:text-[#555a5c] ml-1">Login</span></span> -->
+            <!-- </div> -->
+            <span  class="text-sm text-[#555a5c] text-left flex flex-row items-center justify-center cursor-pointer mt-1">Already have an account? <span @click="$router.push('/auth?tab=login')" class="text-white hover:text-[#555a5c] ml-1">Login</span></span>
             
             
           </form>
@@ -90,7 +91,7 @@
   //  import * as yup from 'yup';
    import { useToast } from "primevue/usetoast";
    import { FIREBASE_DB,FIREBASE_AUTH } from '../firebaseConfig';
-   import { getAuth, createUserWithEmailAndPassword,signInWithPopup, GoogleAuthProvider, sendEmailVerification} from "firebase/auth";
+   import { getAuth, createUserWithEmailAndPassword,signInWithPopup, GoogleAuthProvider,} from "firebase/auth";
    import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 
    const emit = defineEmits(['showVerify','openLogin'])  // Declare Events
@@ -100,7 +101,7 @@
   const visible = ref(false)
 
   const showLoader = ref(false)
-  const {objectToArray} = useConverters()
+  const {sendVerification,welcome} = useRequests()
 
   // const props = defineProps<{
   //   showSignup: boolean
@@ -161,8 +162,9 @@
             //   url: 'https://www.myjobroutes.com/?uid=' + user.uid,
             // };
 
-            if(FIREBASE_AUTH.currentUser)await sendEmailVerification(FIREBASE_AUTH.currentUser);
-
+            // if(FIREBASE_AUTH.currentUser)await sendEmailVerification(FIREBASE_AUTH.currentUser);
+            if(user.email) await sendVerification(user.email)
+  
             emit('showVerify',user.email)
             route.push('/auth?tab=login'); 
 
@@ -239,6 +241,7 @@
       const userAdded = await addUser(profile)
 
       if(userAdded){
+        await welcome(user.email,user.displayName);
         // showLoader.value = false
         // toast.add({ severity: 'success', summary: 'Operation Successful', detail: 'Account created ', life: 3000, group:'success' });
         initToast(true,'Successful','Account Created successfully')

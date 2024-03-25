@@ -2,7 +2,7 @@
   <div class="w-full h-full overflow-y-scroll bg-[#0b1015] no-scrollbar">
 
     <!-- Container -->
-    <section class="w-full h-full grid grid-cols-12">
+    <section class="w-full h-full grid grid-cols-12 gap-y-8">
        
       <div class="col-span-12 flex flex-col bg-pattern lg:col-span-6 gap-y-8 px-8 sm:px-16 py-8">
 
@@ -20,13 +20,15 @@
 
       </div>
 
-      <div class="col-span-12 lg:col-span-6 h-full flex flex-row items-center justify-center lg:justify-start px-6 sm:px-16 ">
+      <div class="col-span-12 lg:col-span-6 h-full flex flex-row items-center justify-center lg:justify-start px-6 sm:px-16 pb-10 sm:pb-0 ">
 
         <Login v-if="tab =='login'" />
         <!-- sign Up -->
         <SignUp v-if="tab =='signUp'" @show-verify="(email)=>{showVerify(email)}"/>
         <!-- Login -->
-        
+        <ForgotPass v-if="tab =='forgotPassWord'" />
+
+        <Verify v-if="tab =='verify'" />
 
       </div>
       

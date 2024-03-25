@@ -29,6 +29,7 @@
               <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Name</span>
               <input
                 type="text"
+                readonly
                 v-model="user.displayName"
                 class="cabinet w-full border border-gray-200 dark:border-[#23282d] dark:text-gray-400 text-sm h-full py-3 lg:py-4 px-4 rounded-3xl bg-white dark:bg-[#12171d]"
                 placeholder="Where was it"
@@ -38,6 +39,7 @@
             <div v-if="user" class="w-1/2 flex flex-col items-start justify-center ">
               <span class="text-sm text-[#555a5c] text-left ml-3 mb-2">Email</span>
               <input
+                readonly
                 type="text"
                 v-model="user.email"
                 class="cabinet w-full border border-gray-200 dark:border-[#23282d] dark:text-gray-400 text-sm h-full py-3 lg:py-4 px-4 rounded-3xl bg-white dark:bg-[#12171d]"
